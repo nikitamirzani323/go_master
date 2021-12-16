@@ -40,7 +40,7 @@
         initPasaran(idcompany);
     };
     async function initapp() {
-        const res = await fetch("/api/home", {
+        const res = await fetch("/api/init", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -48,6 +48,7 @@
             },
             body: JSON.stringify({
                 master: master,
+                page: "COMPANY_HOME",
             }),
         });
         const json = await res.json();
@@ -59,14 +60,14 @@
         }
     }
     async function initCompany() {
-        const res = await fetch("/api/allcompany", {
+        const res = await fetch("/api/company", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + token,
             },
             body: JSON.stringify({
-                master: master,
+                company_search: "",
             }),
         });
         const json = await res.json();
@@ -124,7 +125,7 @@
         }
     }
     async function editCompany(e) {
-        const res = await fetch("/api/detailcompany", {
+        const res = await fetch("/api/companydetail", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -132,7 +133,9 @@
             },
             body: JSON.stringify({
                 company: e,
+                page: "COMPANY_SAVE",
                 master: master,
+                sData: "Edit",
             }),
         });
         const json = await res.json();

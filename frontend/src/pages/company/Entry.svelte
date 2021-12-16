@@ -283,6 +283,8 @@
             },
             body: JSON.stringify({
                 master: master,
+                sData: "New",
+                page: "COMPANY_HOME",
                 company: idcompany,
             }),
         });
@@ -329,6 +331,8 @@
             },
             body: JSON.stringify({
                 master: master,
+                sData: "New",
+                page: "COMPANY_HOME",
                 company: idcompany,
             }),
         });

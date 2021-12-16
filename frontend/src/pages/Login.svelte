@@ -52,10 +52,7 @@
         <Col md={{size:4, offset:4}} xs="3">
             <div class="card" style="border-radius:0px;margin-top:10px;">
                 <div class="card-header" style="background-color: #1f2937;">
-                    <span
-                        style="color:white;font-weight: bold;font-size: 15px;"
-                        >LOGIN - MASTER</span
-                    >
+                    <span style="color:white;font-weight: bold;font-size: 15px;">LOGIN - MASTER</span>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
@@ -66,8 +63,7 @@
                             type="text"
                             class="form-control"
                             placeholder="Username"
-                            aria-label="Username"
-                        />
+                            aria-label="Username"/>
                     </div>
                     <div class="mb-3">
                         <input
@@ -77,8 +73,7 @@
                             type="password"
                             class="form-control"
                             placeholder="Password"
-                            aria-label="Password"
-                        />
+                            aria-label="Password"/>
                     </div>
                     <div class="mb-3">
                         <Button
@@ -86,8 +81,7 @@
                             color="dark"
                             on:click={() => {
                                 handleSubmit();
-                            }}>SUBMIT</Button
-                        >
+                            }}>SUBMIT</Button>
                     </div>
                 </div>
             </div>
