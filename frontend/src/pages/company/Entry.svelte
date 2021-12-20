@@ -22,9 +22,12 @@
     export let company_update_field = "";
 
     let admin_username_field = "";
+    let admin_username_flag_field = false; 
     let admin_password_field = "";
     let admin_name_field = "";
     let admin_status_field = "";
+    let searchadmin = "";
+    let filteradmin = "";
 
     let pasaran_id_field = "";
     let companypasaran_id_field = "";
@@ -38,6 +41,8 @@
     let pasaran_jamjadwal_field = "";
     let pasaran_jamopen_field = "";
     let pasaran_status_field = "";
+    let searchpasaran = "";
+    let filterpasaran = "";
 
     let pasaran_limitline4d_field = 0;
     let pasaran_limitline3d_field = 0;
@@ -228,6 +233,31 @@
     const BackHalaman = () => {
         dispatch("handleBackHalaman", "call");
     };
+    $: {
+        if (searchadmin) {
+            filteradmin = listAdmin.filter(
+                (item) =>
+                    item.company_admin_username
+                        .toLowerCase()
+                        .includes(searchadmin.toLowerCase()) || 
+                    item.company_admin_nama
+                        .toLowerCase()
+                        .includes(searchadmin.toLowerCase())
+            );
+        } else {
+            filteradmin = [...listAdmin];
+        }
+        if (searchpasaran) {
+            filterpasaran = listPasaran.filter(
+                (item) =>
+                    item.company_pasaran_nmpasarantogel
+                        .toLowerCase()
+                        .includes(searchpasaran.toLowerCase())
+            );
+        } else {
+            filterpasaran = [...listPasaran];
+        }
+    }
     async function saveEntry() {
         let flag = false;
         let msg = "";
@@ -416,7 +446,7 @@
         }
     }
     async function call_listpasaranonline() {
-        const res = await fetch("/api/companylistpasaranonline", {
+        const res = await fetch("/api/companypasaranonline", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -424,6 +454,8 @@
             },
             body: JSON.stringify({
                 master: master,
+                sData: "New",
+                page: "COMPANY_HOME",
                 company: idcompany,
                 companypasaran_id: companypasaran_id_field,
             }),
@@ -449,13 +481,16 @@
         }
     }
     async function call_listpasaranconf() {
-        const res = await fetch("/api/companylistpasaranconf", {
+        const res = await fetch("/api/companypasaranconf", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + token,
             },
             body: JSON.stringify({
+                master: master,
+                sData: "New",
+                page: "COMPANY_HOME",
                 company: idcompany,
                 companypasaran_id: companypasaran_id_field,
             }),
@@ -768,6 +803,7 @@
     }
     const newAdmin = () => {
         sData = "New";
+        admin_username_flag_field = false
         let myModalAdmin = new bootstrap.Modal(
             document.getElementById("modalNewAdmin")
         );
@@ -780,6 +816,7 @@
         );
         myModalAdmin.show();
         admin_username_field = username;
+        admin_username_flag_field = true
         admin_password_field = "";
         admin_name_field = nama;
         admin_status_field = status;
@@ -827,20 +864,21 @@
             const json = await res.json();
             if (json.status == 200) {
                 msgloader = json.message;
+                if (sData == "New") {
+                    admin_username_field = "";
+                    admin_password_field = "";
+                    admin_name_field = "";
+                    admin_status_field = "";
+                }
+                listAdmin = [];
+                call_listadmin();
             } else {
                 msgloader = json.message;
             }
             setTimeout(function () {
                 css_loader = "display: none;";
             }, 1000);
-            if (sData == "New") {
-                admin_username_field = "";
-                admin_password_field = "";
-                admin_name_field = "";
-                admin_status_field = "";
-            }
-            listAdmin = [];
-            call_listadmin();
+            alert(msgloader);
         } else {
             alert(msg);
         }
@@ -1620,7 +1658,7 @@
             msg += "The Disc 2DT is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasaran432", {
+            const res = await fetch("/api/updatecompanypasaran432", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1746,7 +1784,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasarancolokbebas", {
+            const res = await fetch("/api/updatecompanypasarancolokbebas", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1830,7 +1868,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasarancolokmacau", {
+            const res = await fetch("/api/updatecompanypasarancolokmacau", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1912,7 +1950,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasarancoloknaga", {
+            const res = await fetch("/api/updatecompanypasarancoloknaga", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1997,7 +2035,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasarancolokjitu", {
+            const res = await fetch("/api/updatecompanypasarancolokjitu", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -2118,7 +2156,7 @@
             msg += "The Disc Tepi is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasaran5050umum", {
+            const res = await fetch("/api/updatecompanypasaran5050umum", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -2346,7 +2384,7 @@
         }
         if (flag == false) {
             const res = await fetch(
-                "/api/savecompanyupdatepasaran5050special",
+                "/api/updatecompanypasaran5050special",
                 {
                     method: "POST",
                     headers: {
@@ -2629,7 +2667,7 @@
         }
         if (flag == false) {
             const res = await fetch(
-                "/api/savecompanyupdatepasaran5050kombinasi",
+                "/api/updatecompanypasaran5050kombinasi",
                 {
                     method: "POST",
                     headers: {
@@ -2794,7 +2832,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasarankombinasi", {
+            const res = await fetch("/api/updatecompanypasarankombinasi", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -2896,7 +2934,7 @@
             msg += "The Diskon Ganjil is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasarandasar", {
+            const res = await fetch("/api/updatecompanypasarandasar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -2988,7 +3026,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyupdatepasaranshio", {
+            const res = await fetch("/api/updatecompanypasaranshio", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -4523,7 +4561,7 @@
             }
         }
         for (let i = 0; i < pasaran_minbet_kombinasi_field.length; i++) {
-            numbera = parseInt(pasaran_maxbet4d_432d_field[i]);
+            numbera = parseInt(pasaran_minbet_kombinasi_field[i]);
             if (isNaN(numbera)) {
                 pasaran_minbet_kombinasi_field = 0;
             }
@@ -4747,8 +4785,7 @@
                     BackHalaman();
                 }}
                 class="btn btn-dark btn-sm"
-                style="border-radius: 0px;"
-            >
+                style="border-radius: 0px;">
                 Back
             </button>
         </Col>
@@ -4854,8 +4891,7 @@
                                 newAdmin();
                             }}
                             class="btn btn-primary btn-sm"
-                            style="border-radius: 0px;"
-                        >
+                            style="border-radius: 0px;">
                             New
                         </button>
                     </div>
@@ -4863,11 +4899,11 @@
                 <slot:template slot="csearch">
                     <div class="col-lg-12" style="padding: 5px;">
                         <input
+                            bind:value={searchadmin}
                             type="text"
                             class="form-control"
                             placeholder="Search Admin"
-                            aria-label="Search"
-                        />
+                            aria-label="Search"/>
                     </div>
                 </slot:template>
                 <slot:template slot="cbody">
@@ -4876,34 +4912,22 @@
                             <tr>
                                 <th
                                     width="1%"
-                                    style="text-align:center;vertical-align:top;font-size: 14px;"
-                                    >&nbsp;</th
-                                >
+                                    style="text-align:center;vertical-align:top;font-size: 14px;">&nbsp;</th>
                                 <th
                                     width="1%"
-                                    style="text-align:center;vertical-align:top;font-size: 14px;"
-                                    >STATUS</th
-                                >
+                                    style="text-align:center;vertical-align:top;font-size: 14px;">STATUS</th>
                                 <th
-                                    style="text-align:center;vertical-align:top;font-size: 14px;"
-                                    >TYPE</th
-                                >
+                                    style="text-align:center;vertical-align:top;font-size: 14px;">TYPE</th>
                                 <th
-                                    style="text-align:center;vertical-align:top;font-size: 14px;"
-                                    >LASTLOGIN</th
-                                >
+                                    style="text-align:center;vertical-align:top;font-size: 14px;">LASTLOGIN</th>
                                 <th
-                                    style="text-align:left;vertical-align:top;font-size: 14px;"
-                                    >LASTIPADDRES</th
-                                >
+                                    style="text-align:left;vertical-align:top;font-size: 14px;">LASTIPADDRES</th>
                                 <th
-                                    style="text-align:left;vertical-align:top;font-size: 14px;"
-                                    >USERNAME</th
-                                >
+                                    style="text-align:left;vertical-align:top;font-size: 14px;">USERNAME</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {#each listAdmin as rec}
+                            {#each filteradmin as rec}
                                 <tr>
                                     <td
                                         on:click={() => {
@@ -4959,8 +4983,7 @@
                                 newPasaran();
                             }}
                             class="btn btn-primary btn-sm"
-                            style="border-radius: 0px;"
-                        >
+                            style="border-radius: 0px;">
                             New
                         </button>
                     </div>
@@ -4968,11 +4991,11 @@
                 <slot:template slot="csearch">
                     <div class="col-lg-12" style="padding: 5px;">
                         <input
+                            bind:value={searchpasaran}
                             type="text"
                             class="form-control"
                             placeholder="Search Pasaran"
-                            aria-label="Search"
-                        />
+                            aria-label="Search"/>
                     </div>
                 </slot:template>
                 <slot:template slot="cbody">
@@ -4981,38 +5004,26 @@
                             <tr>
                                 <th
                                     width="1%"
-                                    style="text-align:center;vertical-align:top;font-size: 14px;"
-                                    >&nbsp;</th
-                                >
+                                    style="text-align:center;vertical-align:top;font-size: 14px;">&nbsp;</th>
                                 <th
                                     width="1%"
-                                    style="text-align:center;vertical-align:top;font-size: 14px;"
-                                    >STATUS</th
-                                >
+                                    style="text-align:center;vertical-align:top;font-size: 14px;">STATUS</th>
                                 <th
                                     width="1%"
-                                    style="text-align:center;vertical-align:top;font-size: 14px;"
-                                    >&nbsp;</th
-                                >
+                                    style="text-align:center;vertical-align:top;font-size: 14px;">&nbsp;</th>
                                 <th
                                     width="*"
-                                    style="text-align:left;vertical-align:top;font-size: 14px;"
-                                    >PASARAN</th
-                                >
+                                    style="text-align:left;vertical-align:top;font-size: 14px;">PASARAN</th>
                                 <th
                                     width="10%"
-                                    style="text-align:left;vertical-align:top;font-size: 14px;"
-                                    >PERIODE</th
-                                >
+                                    style="text-align:left;vertical-align:top;font-size: 14px;">PERIODE</th>
                                 <th
                                     width="10%"
-                                    style="text-align:right;vertical-align:top;font-size: 14px;"
-                                    >WINLOSE</th
-                                >
+                                    style="text-align:right;vertical-align:top;font-size: 14px;">WINLOSE</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {#each listPasaran as rec}
+                            {#each filterpasaran as rec}
                                 <tr>
                                     <td
                                         on:click={() => {
@@ -5024,35 +5035,25 @@
                                         }}
                                         width="1%"
                                         NOWRAP
-                                        style="text-align: center;vertical-align:top;font-size: 13px;cursor:pointer;"
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 13px;cursor:pointer;">
                                         <Icon name="pencil" />
                                     </td>
                                     <td
                                         NOWRAP
-                                        style="text-align: center;vertical-align:top;font-size:13px;{rec.company_pasaran_statuscss}"
-                                        >{rec.company_pasaran_status}</td
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size:13px;{rec.company_pasaran_statuscss}">{rec.company_pasaran_status}</td>
                                     <td
                                         NOWRAP
-                                        style="text-align: center;vertical-align:top;font-size:13px;{rec.company_pasaran_statuspasaranactivecss}"
-                                        >{rec.company_pasaran_statuspasaranactive}</td
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size:13px;{rec.company_pasaran_statuspasaranactivecss}">{rec.company_pasaran_statuspasaranactive}</td>
                                     <td
                                         NOWRAP
-                                        style="text-align: left;vertical-align:top;font-size:13px;"
-                                        >{rec.company_pasaran_nmpasarantogel}</td
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size:13px;">{rec.company_pasaran_nmpasarantogel}</td>
                                     <td
                                         NOWRAP
-                                        style="text-align: left;vertical-align:top;font-size:13px;"
-                                        >{rec.company_pasaran_periode}</td
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size:13px;">{rec.company_pasaran_periode}</td>
                                     <td
                                         NOWRAP
                                         style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_csswinlose}">
-                                        {new Intl.NumberFormat().format(rec.company_pasaran_winlose)}
-                                    </td>
+                                        {new Intl.NumberFormat().format(rec.company_pasaran_winlose)}</td>
                                 </tr>
                             {/each}
                         </tbody>
@@ -5072,8 +5073,7 @@
     modal_id={"modalNewAdmin"}
     modal_size={"modal-dialog-centered"}
     modal_body_height={"height:300px;"}
-    modal_footer_flag={true}
->
+    modal_footer_flag={true}>
     <slot:template slot="header">
         <h5 class="modal-title" id="exampleModalLabel">Entry/{sData}</h5>
     </slot:template>
@@ -5084,6 +5084,7 @@
                     <label for="exampleForm" class="form-label">Username</label>
                     <input
                         bind:value={admin_username_field}
+                        disabled='{admin_username_flag_field}'
                         type="text"
                         maxlength="70"
                         class="form-control required"
@@ -5143,8 +5144,7 @@
     modal_id={"modalNewPasaran"}
     modal_size={"modal-dialog-centered"}
     modal_body_height={"height:200px;"}
-    modal_footer_flag={true}
->
+    modal_footer_flag={true}>
     <slot:template slot="header">
         <h5 class="modal-title" id="exampleModalLabel">Entry/{sData}</h5>
     </slot:template>
@@ -5155,8 +5155,7 @@
                     <label for="exampleForm" class="form-label">Pasaran</label>
                     <select
                         bind:value={pasaran_id_field}
-                        class="form-control required"
-                    >
+                        class="form-control required">
                         {#each listPasaranMaster as rec}
                             <option value={rec.pasaran_idpasarantogel}
                                 >{rec.pasaran_nmpasarantogel}</option
@@ -5204,8 +5203,7 @@
                                     saveupdatepasaran();
                                 }}
                                 class="btn btn-warning"
-                                style="border-radius: 0px;"
-                            >
+                                style="border-radius: 0px;">
                                 Save
                             </button>
                         </div>
@@ -5214,35 +5212,27 @@
                         <Row>
                             <Col xs="2">
                                 <div class="mb-3">
-                                    <label for="exampleform" class="form-label"
-                                        >Situs</label
-                                    >
+                                    <label for="exampleform" class="form-label">Situs</label>
                                     <input
                                         bind:value={pasaran_urlpasaran_field}
                                         type="text"
                                         class="form-control required"
                                         placeholder="Pasaran Togel"
-                                        aria-label="Pasaran Togel"
-                                    />
+                                        aria-label="Pasaran Togel"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleform" class="form-label"
-                                        >Hari diundi</label
-                                    >
+                                    <label for="exampleform" class="form-label">Hari diundi</label>
                                     <input
                                         bind:value={pasaran_pasarandiundi_field}
                                         type="text"
                                         class="form-control required"
                                         placeholder="Pasaran Togel"
-                                        aria-label="Pasaran Togel"
-                                    />
+                                        aria-label="Pasaran Togel"/>
                                 </div>
                             </Col>
                             <Col xs="2">
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >Tutup</label
-                                    >
+                                    <label for="exampleForm" class="form-label">Tutup</label>
                                     <input
                                         bind:value={pasaran_jamtutup_field}
                                         on:keyup={handleKeyboard_time}
@@ -5252,14 +5242,12 @@
                                         style="text-align:center;"
                                         class="form-control required"
                                         placeholder="Pasaran Togel"
-                                        aria-label="Pasaran Togel"
-                                    />
+                                        aria-label="Pasaran Togel"/>
                                 </div>
                                 <div class="mb-3">
                                     <label
                                         for="exampleFormControlInput1"
-                                        class="form-label">Jadwal</label
-                                    >
+                                        class="form-label">Jadwal</label>
                                     <input
                                         bind:value={pasaran_jamjadwal_field}
                                         on:keyup={handleKeyboard_time}
@@ -5269,13 +5257,10 @@
                                         style="text-align:center;"
                                         class="form-control required"
                                         placeholder="Pasaran Togel"
-                                        aria-label="Pasaran Togel"
-                                    />
+                                        aria-label="Pasaran Togel"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >Buka</label
-                                    >
+                                    <label for="exampleForm" class="form-label">Buka</label>
                                     <input
                                         bind:value={pasaran_jamopen_field}
                                         on:keyup={handleKeyboard_time}
@@ -5285,17 +5270,13 @@
                                         style="text-align:center;"
                                         class="form-control required"
                                         placeholder="Pasaran Togel"
-                                        aria-label="Pasaran Togel"
-                                    />
+                                        aria-label="Pasaran Togel"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >Status</label
-                                    >
+                                    <label for="exampleForm" class="form-label">Status</label>
                                     <select
                                         bind:value={pasaran_status_field}
-                                        class="form-control required"
-                                    >
+                                        class="form-control required">
                                         <option value="Y">ACTIVE</option>
                                         <option value="N">DEACTIVE</option>
                                     </select>
@@ -5334,9 +5315,7 @@
                         <Row>
                             <Col xs="1">
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >BBFS</label
-                                    >
+                                    <label for="exampleForm" class="form-label">BBFS</label>
                                     <input
                                         bind:value={pasaran_bbfs_field}
                                         on:keyup={handleKeyboard_number}
@@ -5344,20 +5323,16 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="BBFS"
-                                        aria-label="BBFS"
-                                    />
+                                        aria-label="BBFS"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_bbfs_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                             </Col>
                             <Col xs="1">
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >LimitLine 4D</label
-                                    >
+                                    <label for="exampleForm" class="form-label">LimitLine 4D</label>
                                     <input
                                         bind:value={pasaran_limitline4d_field}
                                         on:keyup={handleKeyboard_number}
@@ -5365,18 +5340,14 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Limitline 4D"
-                                        aria-label="Limitline 4D"
-                                    />
+                                        aria-label="Limitline 4D"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_limitline4d_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >LimitLine 3D</label
-                                    >
+                                    <label for="exampleForm" class="form-label">LimitLine 3D</label>
                                     <input
                                         bind:value={pasaran_limitline3d_field}
                                         on:keyup={handleKeyboard_number}
@@ -5384,20 +5355,16 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Limitline 3D"
-                                        aria-label="Limitline 3D"
-                                    />
+                                        aria-label="Limitline 3D"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_limitline3d_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                             </Col>
                             <Col xs="1">
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >LimitLine 2D</label
-                                    >
+                                    <label for="exampleForm" class="form-label">LimitLine 2D</label>
                                     <input
                                         bind:value={pasaran_limitline2d_field}
                                         on:keyup={handleKeyboard_number}
@@ -5405,18 +5372,14 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Limitline 2D"
-                                        aria-label="Limitline 2D"
-                                    />
+                                        aria-label="Limitline 2D"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_limitline2d_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >LimitLine 2DD</label
-                                    >
+                                    <label for="exampleForm" class="form-label">LimitLine 2DD</label>
                                     <input
                                         bind:value={pasaran_limitline2dd_field}
                                         on:keyup={handleKeyboard_number}
@@ -5424,19 +5387,16 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Limitline 2DD"
-                                        aria-label="Limitline 2DD"
-                                    />
+                                        aria-label="Limitline 2DD"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_limitline2dd_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                                 <div class="mb-3">
                                     <label
                                         for="exampleFormControlInput1"
-                                        class="form-label">LimitLine 2DT</label
-                                    >
+                                        class="form-label">LimitLine 2DT</label>
                                     <input
                                         bind:value={pasaran_limitline2dt_field}
                                         on:keyup={handleKeyboard_number}
@@ -5444,13 +5404,11 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Limitline 2DT"
-                                        aria-label="Limitline 2DT"
-                                    />
+                                        aria-label="Limitline 2DT"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_limitline2dt_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                             </Col>
                         </Row>
@@ -8590,9 +8548,7 @@
                         <Row>
                             <Col xs="2">
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >Min Bet</label
-                                    >
+                                    <label for="exampleForm" class="form-label">Min Bet</label>
                                     <input
                                         bind:value={pasaran_minbet_kombinasi_field}
                                         on:keyup={handleKeyboard_number}
@@ -8600,18 +8556,14 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Min Bet"
-                                        aria-label="Min Bet"
-                                    />
-                                    <small style="float:right;font-size:11px;"
-                                        >{new Intl.NumberFormat().format(
+                                        aria-label="Min Bet"/>
+                                    <small style="float:right;font-size:11px;">
+                                        {new Intl.NumberFormat().format(
                                             pasaran_minbet_kombinasi_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleForm" class="form-label"
-                                        >Max Bet</label
-                                    >
+                                    <label for="exampleForm" class="form-label">Max Bet</label>
                                     <input
                                         bind:value={pasaran_maxbet_kombinasi_field}
                                         on:keyup={handleKeyboard_number}
@@ -8619,13 +8571,11 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Max Bet"
-                                        aria-label="Max Bet"
-                                    />
+                                        aria-label="Max Bet"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_maxbet_kombinasi_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                             </Col>
                             <Col xs="2">
