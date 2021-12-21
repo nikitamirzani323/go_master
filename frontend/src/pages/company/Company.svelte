@@ -121,7 +121,7 @@
                 alert("Error");
             }
         } else {
-            logout();
+            // logout();
         }
     }
     async function editCompany(e) {
@@ -163,6 +163,8 @@
             body: JSON.stringify({
                 company: e,
                 master: master,
+                page: "COMPANY_HOME",
+                sdata: "New",
             }),
         });
         const json = await res.json();

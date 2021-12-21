@@ -109,6 +109,7 @@
                     Authorization: "Bearer " + token,
                 },
                 body: JSON.stringify({
+                    page: "COMPANY_HOME",
                     company: idcompany,
                     periode: select_periode,
                     pasaran: parseInt(select_pasaran),
@@ -134,43 +135,43 @@
                 if (record != null) {
                     totalrecord = record.length;
                     for (var i = 0; i < record.length; i++) {
-                        let selisih = parseInt(record[i]["pasaran_winlose"]) - parseInt(record[i]["pasaran_winlosetemp"])
+                        let selisih = parseInt(record[i]["company_pasaran_winlose"]) - parseInt(record[i]["company_pasaran_winlosetemp"])
                         if (parseInt(selisih) > 0) {
                             css_selisih = "color:blue;font-weight:bold";
                         } else {
                             css_selisih = "color:red;font-weight:bold";
                         }
-                        if (parseInt(record[i]["pasaran_totalmember"]) > 0) {
+                        if (parseInt(record[i]["company_pasaran_totalmember"]) > 0) {
                             css_totalmember = "color:blue;font-weight:bold";
                         } else {
                             css_totalmember = "color:red;font-weight:bold";
                         }
-                        if (parseInt(record[i]["pasaran_totalbet"]) > 0) {
+                        if (parseInt(record[i]["company_pasaran_totalbet"]) > 0) {
                             css_totalbet = "color:blue;font-weight:bold";
                         } else {
                             css_totalbet = "color:red;font-weight:bold";
                         }
-                        if (parseInt(record[i]["pasaran_totaloutstanding"]) > 0) {
+                        if (parseInt(record[i]["company_pasaran_totaloutstanding"]) > 0) {
                             css_totalbayar = "color:blue;font-weight:bold";
                         } else {
                             css_totalbayar = "color:red;font-weight:bold";
                         }
-                        if (parseInt(record[i]["pasaran_totalcancelbet"]) > 0) {
+                        if (parseInt(record[i]["company_pasaran_totalcancelbet"]) > 0) {
                             css_totalcancel = "color:blue;font-weight:bold";
                         } else {
                             css_totalcancel = "color:red;font-weight:bold";
                         }
-                        if (parseInt(record[i]["pasaran_winlose"]) > 0) {
+                        if (parseInt(record[i]["company_pasaran_winlose"]) > 0) {
                             css_winlose = "color:blue;font-weight:bold";
                         } else {
                             css_winlose = "color:red;font-weight:bold";
                         }
-                        if (parseInt(record[i]["pasaran_winlosetemp"]) > 0) {
+                        if (parseInt(record[i]["company_pasaran_winlosetemp"]) > 0) {
                             css_winlosetemp = "color:blue;font-weight:bold";
                         } else {
                             css_winlosetemp = "color:red;font-weight:bold";
                         }
-                        if (parseInt(record[i]["pasaran_revisi"]) > 0) {
+                        if (parseInt(record[i]["company_pasaran_revisi"]) > 0) {
                             css_revisi = "color:blue;font-weight:bold";
                         } else {
                             css_revisi = "color:red;font-weight:bold";
@@ -178,33 +179,33 @@
                         listPeriode = [
                             ...listPeriode,
                             {
-                                no: record[i]["pasaran_no"],
-                                pasaran_invoice: record[i]["pasaran_invoice"].toString(),
-                                pasaran_idcompp: record[i]["pasaran_idcompp"],
-                                pasaran_code: record[i]["pasaran_code"],
-                                pasaran_periode: record[i]["pasaran_periode"],
-                                pasaran_name: record[i]["pasaran_name"],
-                                pasaran_keluaran: record[i]["pasaran_keluaran"],
-                                pasaran_tanggal: record[i]["pasaran_tanggal"],
-                                pasaran_totalmember:record[i]["pasaran_totalmember"],
-                                pasaran_totalmember_css: css_totalmember,
-                                pasaran_totalbet: record[i]["pasaran_totalbet"],
-                                pasaran_totalbet_css: css_totalbet,
-                                pasaran_totaloutstanding:record[i]["pasaran_totaloutstanding"],
-                                pasaran_totaloutstanding_css: css_totalbayar,
-                                pasaran_totalcancelbet:record[i]["pasaran_totalcancelbet"],
-                                pasaran_totalcancelbet_css:css_totalcancel,
-                                pasaran_msgrevisi: record[i]["pasaran_msgrevisi"],
-                                pasaran_revisi: record[i]["pasaran_revisi"],
-                                pasaran_revisi_css: css_revisi,
-                                pasaran_winlose: record[i]["pasaran_winlose"],
-                                pasaran_winlose_css: css_winlose,
-                                pasaran_winlosetemp: record[i]["pasaran_winlosetemp"],
-                                pasaran_winlosetemp_css: css_winlosetemp,
-                                pasaran_selisih: selisih,
-                                pasaran_selisih_css: css_selisih,
-                                pasaran_status: record[i]["pasaran_status"],
-                                pasaran_status_css: record[i]["pasaran_status_css"],
+                                no: record[i]["company_pasaran_no"],
+                                company_pasaran_invoice: record[i]["company_pasaran_invoice"].toString(),
+                                company_pasaran_idcompp: record[i]["company_pasaran_idcompp"],
+                                company_pasaran_code: record[i]["company_pasaran_code"],
+                                company_pasaran_periode: record[i]["company_pasaran_periode"],
+                                company_pasaran_name: record[i]["company_pasaran_name"],
+                                company_pasaran_keluaran: record[i]["company_pasaran_keluaran"],
+                                company_pasaran_tanggal: record[i]["company_pasaran_tanggal"],
+                                company_pasaran_totalmember:record[i]["company_pasaran_totalmember"],
+                                company_pasaran_totalmember_css: css_totalmember,
+                                company_pasaran_totalbet: record[i]["company_pasaran_totalbet"],
+                                company_pasaran_totalbet_css: css_totalbet,
+                                company_pasaran_totaloutstanding:record[i]["company_pasaran_totaloutstanding"],
+                                company_pasaran_totaloutstanding_css: css_totalbayar,
+                                company_pasaran_totalcancelbet:record[i]["company_pasaran_totalcancelbet"],
+                                company_pasaran_totalcancelbet_css:css_totalcancel,
+                                company_pasaran_msgrevisi: record[i]["company_pasaran_msgrevisi"],
+                                company_pasaran_revisi: record[i]["company_pasaran_revisi"],
+                                company_pasaran_revisi_css: css_revisi,
+                                company_pasaran_winlose: record[i]["company_pasaran_winlose"],
+                                company_pasaran_winlose_css: css_winlose,
+                                company_pasaran_winlosetemp: record[i]["company_pasaran_winlosetemp"],
+                                company_pasaran_winlosetemp_css: css_winlosetemp,
+                                company_pasaran_selisih: selisih,
+                                company_pasaran_selisih_css: css_selisih,
+                                company_pasaran_status: record[i]["company_pasaran_status"],
+                                company_pasaran_status_css: record[i]["company_pasaran_status_css"],
                             },
                         ];
                     }
@@ -711,86 +712,54 @@
                                 <tr>
                                     <th
                                         width="1%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >&nbsp;</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">&nbsp;</th>
                                     <th
                                         width="1%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >NO</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">NO</th>
                                     <th
                                         width="1%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >&nbsp;</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">&nbsp;</th>
                                     <th
                                         width="7%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >DATE</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">DATE</th>
                                     <th
                                         NOWRAP
                                         width="1%"
-                                        style="text-align: left;vertical-align:top;font-size: 14px;"
-                                        >INVOICE</th
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size: 14px;">INVOICE</th>
                                     <th
                                         width="7%"
-                                        style="text-align: left;vertical-align:top;font-size: 14px;"
-                                        >PERIODE</th
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size: 14px;">PERIODE</th>
                                     <th
                                         width="*"
-                                        style="text-align: left;vertical-align:top;font-size: 14px;"
-                                        >PASARAN</th
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size: 14px;">PASARAN</th>
                                     <th
                                         width="5%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >KELUARAN</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">KELUARAN</th>
                                     <th
                                         NOWRAP
                                         width="1%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >REVISI</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">REVISI</th>
                                     <th
                                         width="6%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >MEMBER</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">MEMBER</th>
                                     <th
                                         width="10%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >BET</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">BET</th>
                                     <th
                                         width="10%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >BAYAR</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">BAYAR</th>
                                     <th
                                         width="5%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >CANCEL</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">CANCEL</th>
                                     <th
                                         width="10%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >WINLOSE</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">WINLOSE</th>
                                     <th
                                         width="10%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >WINLOSE TEMP</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">WINLOSE TEMP</th>
                                     <th
                                         width="10%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >SELISIH</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">SELISIH</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -804,105 +773,83 @@
                                                 );
                                             }}
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;cursor:pointer;"
-                                        >
+                                            style="text-align: center;vertical-align:top;font-size: 13px;cursor:pointer;">
                                             <i class="bi bi-pencil"></i>
                                         </td>
                                         <td
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;"
-                                            >{rec.no}</td
-                                        >
+                                            style="text-align: center;vertical-align:top;font-size: 13px;">{rec.no}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;{rec.pasaran_status_css}"
-                                            >{rec.pasaran_status}</td
-                                        >
+                                            style="text-align: center;vertical-align:top;font-size: 13px;{rec.company_pasaran_status_css}">{rec.company_pasaran_status}</td>
 
                                         <td
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;"
-                                            >{rec.pasaran_tanggal}</td
-                                        >
+                                            style="text-align: center;vertical-align:top;font-size: 13px;">{rec.company_pasaran_tanggal}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: left;vertical-align:top;font-size: 13px;"
-                                            >{rec.pasaran_invoice}</td
-                                        >
+                                            style="text-align: left;vertical-align:top;font-size: 13px;">{rec.company_pasaran_invoice}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: left;vertical-align:top;font-size: 13px;"
-                                            >{rec.pasaran_periode}</td
-                                        >
+                                            style="text-align: left;vertical-align:top;font-size: 13px;">{rec.company_pasaran_periode}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: left;vertical-align:top;font-size: 13px;"
-                                            >{rec.pasaran_name}</td
-                                        >
+                                            style="text-align: left;vertical-align:top;font-size: 13px;">{rec.company_pasaran_name}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;font-weight:bold;color:black;"
-                                            >{rec.pasaran_keluaran}</td
-                                        >
+                                            style="text-align: center;vertical-align:top;font-size: 13px;font-weight:bold;color:black;">{rec.company_pasaran_keluaran}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_revisi_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_revisi_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_revisi
+                                                rec.company_pasaran_revisi
                                             )}
-                                            {#if rec.pasaran_revisi > 0} 
-                                            <i class="bi bi-chat-right-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title="{rec.pasaran_msgrevisi}"></i> 
+                                            {#if rec.company_pasaran_revisi > 0} 
+                                            <i class="bi bi-chat-right-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title="{rec.company_pasaran_msgrevisi}"></i> 
                                             {/if}
                                         </td>
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_totalmember_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_totalmember_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_totalmember
-                                            )}</td
-                                        >
+                                                rec.company_pasaran_totalmember
+                                            )}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_totalbet_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_totalbet_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_totalbet
-                                            )}</td
-                                        >
+                                                rec.company_pasaran_totalbet
+                                            )}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_totaloutstanding_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_totaloutstanding_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_totaloutstanding
-                                            )}</td
-                                        >
+                                                rec.company_pasaran_totaloutstanding
+                                            )}</td >
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_totalcancelbet_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_totalcancelbet_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_totalcancelbet
-                                            )}</td
-                                        >
+                                                rec.company_pasaran_totalcancelbet
+                                            )}</td >
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_winlose_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_winlose_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_winlose
-                                            )}</td
-                                        >
+                                                rec.company_pasaran_winlose
+                                            )}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_winlosetemp_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_winlosetemp_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_winlosetemp
-                                            )}</td
-                                        >
+                                                rec.company_pasaran_winlosetemp
+                                            )}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.pasaran_selisih_css}"
+                                            style="text-align: right;vertical-align:top;font-size: 13px;{rec.company_pasaran_selisih_css}"
                                             >{new Intl.NumberFormat().format(
-                                                rec.pasaran_selisih
-                                            )}</td
-                                        >
+                                                rec.company_pasaran_selisih
+                                            )}</td>
                                     </tr>
                                 {/each}
                             </tbody>
@@ -928,8 +875,7 @@
     modal_id={"modalEditKeluaran"}
     modal_size={"modal-fullscreen"}
     modal_body_height={"height:200px;"}
-    modal_footer_flag={false}
->
+    modal_footer_flag={false}>
     <slot:template slot="header">
         <h5 class="modal-title" id="exampleModalLabel">
             INVOICE : {invoice}<br />

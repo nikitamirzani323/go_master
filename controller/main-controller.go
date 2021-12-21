@@ -33,6 +33,12 @@ type responsedefault struct {
 	Message string      `json:"message"`
 	Record  interface{} `json:"record"`
 }
+type responsedefault_listinvoice struct {
+	Status       int         `json:"status"`
+	Message      string      `json:"message"`
+	Record       interface{} `json:"record"`
+	Totalwinlose int         `json:"totalwinlose"`
+}
 
 func Init(c *fiber.Ctx) error {
 	hostname := c.Hostname()

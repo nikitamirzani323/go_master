@@ -952,7 +952,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasaranlimitline", {
+            const res = await fetch("/api/fetchpasaranlimitline", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -991,7 +991,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasaran432", {
+            const res = await fetch("/api/fetchpasaran432", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1030,7 +1030,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasarancolokbebas", {
+            const res = await fetch("/api/fetchpasarancbebas", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1069,7 +1069,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasarancolokmacau", {
+            const res = await fetch("/api/fetchpasarancmacau", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1108,7 +1108,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasarancoloknaga", {
+            const res = await fetch("/api/fetchpasarancnaga", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1147,7 +1147,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasarancolokjitu", {
+            const res = await fetch("/api/fetchpasarancjitu", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1186,7 +1186,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasaran5050umum", {
+            const res = await fetch("/api/fetchpasaran5050umum", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1225,7 +1225,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasaran5050special", {
+            const res = await fetch("/api/fetchpasaran5050special", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1265,7 +1265,7 @@
         }
         if (flag == false) {
             const res = await fetch(
-                "/api/savecompanyfetchpasaran5050kombinasi",
+                "/api/fetchpasaran5050kombinasi",
                 {
                     method: "POST",
                     headers: {
@@ -1307,7 +1307,7 @@
         }
         if (flag == false) {
             const res = await fetch(
-                "/api/savecompanyfetchpasaranmacaukombinasi",
+                "/api/fetchpasaranmacau",
                 {
                     method: "POST",
                     headers: {
@@ -1348,7 +1348,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasarandasar", {
+            const res = await fetch("/api/fetchpasarandasar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1387,7 +1387,7 @@
             msg += "The Pasaran is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savecompanyfetchpasaranshio", {
+            const res = await fetch("/api/fetchpasaranshio", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

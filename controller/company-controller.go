@@ -9,31 +9,10 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type company_all struct {
-	Company_search string `json:"company_search"`
-}
-type company_detail struct {
-	Company string `json:"company"`
-	Master  string `json:"master" `
-	Page    string `json:"page" `
-	Sdata   string `json:"sdata" `
-}
-type company_listadmin struct {
-	Company string `json:"company"`
-	Master  string `json:"master" `
-	Page    string `json:"page" `
-	Sdata   string `json:"sdata" `
-}
-type company_save struct {
-	Sdata     string `json:"sdata"`
-	Company   string `json:"company"`
-	Master    string `json:"master"`
-	Name      string `json:"name"`
-	Urldomain string `json:"urldomain"`
-	Status    string `json:"status"`
-}
-
 func Company(c *fiber.Ctx) error {
+	type company_all struct {
+		Company_search string `json:"company_search"`
+	}
 	hostname := c.Hostname()
 	bearToken := c.Get("Authorization")
 	token := strings.Split(bearToken, " ")
@@ -81,6 +60,12 @@ func Company(c *fiber.Ctx) error {
 	}
 }
 func Companydetail(c *fiber.Ctx) error {
+	type company_detail struct {
+		Company string `json:"company"`
+		Master  string `json:"master" `
+		Page    string `json:"page" `
+		Sdata   string `json:"sdata" `
+	}
 	hostname := c.Hostname()
 	bearToken := c.Get("Authorization")
 	token := strings.Split(bearToken, " ")
@@ -130,11 +115,16 @@ func Companydetail(c *fiber.Ctx) error {
 	}
 }
 func Companylistadmin(c *fiber.Ctx) error {
+	type payload_listadmin struct {
+		Company string `json:"company"`
+		Master  string `json:"master" `
+		Page    string `json:"page" `
+		Sdata   string `json:"sdata" `
+	}
 	hostname := c.Hostname()
 	bearToken := c.Get("Authorization")
 	token := strings.Split(bearToken, " ")
-	log.Println("Hostname: ", hostname)
-	client := new(company_listadmin)
+	client := new(payload_listadmin)
 	if err := c.BodyParser(client); err != nil {
 		c.Status(fiber.StatusBadRequest)
 		return c.JSON(fiber.Map{
@@ -179,11 +169,17 @@ func Companylistadmin(c *fiber.Ctx) error {
 	}
 }
 func Companylistpasaran(c *fiber.Ctx) error {
+	type payload_listadmin struct {
+		Company string `json:"company"`
+		Master  string `json:"master" `
+		Page    string `json:"page" `
+		Sdata   string `json:"sdata" `
+	}
 	hostname := c.Hostname()
 	bearToken := c.Get("Authorization")
 	token := strings.Split(bearToken, " ")
 	log.Println("Hostname: ", hostname)
-	client := new(company_listadmin)
+	client := new(payload_listadmin)
 	if err := c.BodyParser(client); err != nil {
 		c.Status(fiber.StatusBadRequest)
 		return c.JSON(fiber.Map{
@@ -218,6 +214,122 @@ func Companylistpasaran(c *fiber.Ctx) error {
 			"message": result.Message,
 			"record":  result.Record,
 			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companylistkeluaran(c *fiber.Ctx) error {
+	type payload_listkeluaran struct {
+		Master  string `json:"master" `
+		Page    string `json:"page" `
+		Company string `json:"company"`
+		Periode string `json:"periode"`
+		Pasaran int    `json:"pasaran"`
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_listkeluaran)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"periode":         client.Periode,
+			"pasaran":         client.Pasaran,
+		}).
+		Post(PATH + "api/companylistkeluaran")
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyinvoicemember(c *fiber.Ctx) error {
+	type payload_invoicemember struct {
+		Master   string `json:"master" `
+		Page     string `json:"page" `
+		Company  string `json:"company"`
+		Username string `json:"username" `
+		Invoice  int    `json:"invoice" `
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_invoicemember)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"username":        client.Username,
+			"invoice":         client.Invoice,
+		}).
+		Post(PATH + "api/companyinvoicemember")
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
 		})
 	} else {
 		result_error := resp.Error().(*responseerror)
@@ -359,6 +471,14 @@ func Companypasaranonline(c *fiber.Ctx) error {
 	}
 }
 func Companysave(c *fiber.Ctx) error {
+	type company_save struct {
+		Sdata     string `json:"sdata"`
+		Company   string `json:"company"`
+		Master    string `json:"master"`
+		Name      string `json:"name"`
+		Urldomain string `json:"urldomain"`
+		Status    string `json:"status"`
+	}
 	hostname := c.Hostname()
 	bearToken := c.Get("Authorization")
 	token := strings.Split(bearToken, " ")
@@ -1754,6 +1874,726 @@ func Companyupdatepasaranshio(c *fiber.Ctx) error {
 			"pasaran_win_shio":         client.Pasaran_win_shio,
 		}).
 		Post(PATH + "api/savecompanyupdatepasaranshio")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasaranlimitline(c *fiber.Ctx) error {
+	type payload_fetchpasaranlimitline struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasaranlimitline)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasaranlimitline")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasaran432(c *fiber.Ctx) error {
+	type payload_fetchpasaran432 struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasaran432)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasaran432")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasarancbebas(c *fiber.Ctx) error {
+	type payload_fetchpasarancbebas struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasarancbebas)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasarancolokbebas")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasarancmacau(c *fiber.Ctx) error {
+	type payload_fetchpasarancmacau struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasarancmacau)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasarancolokmacau")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasarancnaga(c *fiber.Ctx) error {
+	type payload_fetchpasarancnaga struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasarancnaga)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasarancoloknaga")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasarancjitu(c *fiber.Ctx) error {
+	type payload_fetchpasarancjitu struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasarancjitu)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasarancolokjitu")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasaran5050umum(c *fiber.Ctx) error {
+	type payload_fetchpasaran5050umum struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasaran5050umum)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasaran5050umum")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasaran5050special(c *fiber.Ctx) error {
+	type payload_fetchpasaran5050special struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasaran5050special)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasaran5050special")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasaran5050kombinasi(c *fiber.Ctx) error {
+	type payload_fetchpasaran5050kombinasi struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasaran5050kombinasi)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasaran5050kombinasi")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasaranmacau(c *fiber.Ctx) error {
+	type payload_fetchpasaranmacau struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasaranmacau)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasaranmacaukombinasi")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasarandasar(c *fiber.Ctx) error {
+	type payload_fetchpasarandasar struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasarandasar)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasarandasar")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault)
+
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":  result.Status,
+			"message": result.Message,
+			"record":  result.Record,
+			"time":    time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyfetchpasaranshio(c *fiber.Ctx) error {
+	type payload_fetchpasaranshio struct {
+		Sdata             string `json:"sdata" `
+		Company           string `json:"company" `
+		Companypasaran_id int    `json:"companypasaran_id"`
+		Master            string `json:"master" `
+		Pasaran_id        string `json:"pasaran_id" `
+	}
+
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	log.Println("Hostname: ", hostname)
+	client := new(payload_fetchpasaranshio)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname":   hostname,
+			"sdata":             client.Sdata,
+			"master":            client.Master,
+			"company":           client.Company,
+			"companypasaran_id": client.Companypasaran_id,
+			"pasaran_id":        client.Pasaran_id,
+		}).
+		Post(PATH + "api/savecompanyfetchpasaranshio")
 	if err != nil {
 		log.Println(err.Error())
 	}
