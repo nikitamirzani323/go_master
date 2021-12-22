@@ -321,7 +321,386 @@ func Companyinvoicemember(c *fiber.Ctx) error {
 	if err != nil {
 		log.Println(err.Error())
 	}
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyinvoicemembertemp(c *fiber.Ctx) error {
+	type payload_invoicemember struct {
+		Master   string `json:"master" `
+		Page     string `json:"page" `
+		Company  string `json:"company"`
+		Username string `json:"username" `
+		Invoice  int    `json:"invoice" `
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_invoicemember)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
 
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"username":        client.Username,
+			"invoice":         client.Invoice,
+		}).
+		Post(PATH + "api/companyinvoicemembertemp")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyinvoicemembersync(c *fiber.Ctx) error {
+	type payload_invoicemembersync struct {
+		Master   string `json:"master" `
+		Page     string `json:"page" `
+		Company  string `json:"company"`
+		Username string `json:"username" `
+		Invoice  int    `json:"invoice" `
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_invoicemembersync)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"username":        client.Username,
+			"invoice":         client.Invoice,
+		}).
+		Post(PATH + "api/companyinvoicemembersync")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyinvoicegrouppermainan(c *fiber.Ctx) error {
+	type payload_invoicegrouppermainan struct {
+		Master   string `json:"master" `
+		Page     string `json:"page" `
+		Company  string `json:"company"`
+		Username string `json:"username" `
+		Invoice  int    `json:"invoice" `
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_invoicegrouppermainan)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"username":        client.Username,
+			"invoice":         client.Invoice,
+		}).
+		Post(PATH + "api/companyinvoicegrouppermainan")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	log.Println("Response Info:")
+	log.Println("  Error      :", err)
+	log.Println("  Status Code:", resp.StatusCode())
+	log.Println("  Status     :", resp.Status())
+	log.Println("  Proto      :", resp.Proto())
+	log.Println("  Time       :", resp.Time())
+	log.Println("  Received At:", resp.ReceivedAt())
+	log.Println("  Body       :\n", resp)
+	log.Println()
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyinvoicelistpermainan(c *fiber.Ctx) error {
+	type payload_invoicelistpermainan struct {
+		Master    string `json:"master" `
+		Page      string `json:"page" `
+		Company   string `json:"company"`
+		Invoice   int    `json:"invoice"`
+		Permainan string `json:"permainan"`
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_invoicelistpermainan)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"invoice":         client.Invoice,
+			"permainan":       client.Permainan,
+		}).
+		Post(PATH + "api/companyinvoicelistpermainan")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	log.Println("Response Info:")
+	log.Println("  Error      :", err)
+	log.Println("  Status Code:", resp.StatusCode())
+	log.Println("  Status     :", resp.Status())
+	log.Println("  Proto      :", resp.Proto())
+	log.Println("  Time       :", resp.Time())
+	log.Println("  Received At:", resp.ReceivedAt())
+	log.Println("  Body       :\n", resp)
+	log.Println()
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyinvoicelistpermainanstatus(c *fiber.Ctx) error {
+	type payload_invoicelistpermainanstatus struct {
+		Master  string `json:"master" `
+		Page    string `json:"page" `
+		Company string `json:"company"`
+		Invoice int    `json:"invoice"`
+		Status  string `json:"status"`
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_invoicelistpermainanstatus)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"invoice":         client.Invoice,
+			"status":          client.Status,
+		}).
+		Post(PATH + "api/companyinvoicelistpermainanstatus")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	log.Println("Response Info:")
+	log.Println("  Error      :", err)
+	log.Println("  Status Code:", resp.StatusCode())
+	log.Println("  Status     :", resp.Status())
+	log.Println("  Proto      :", resp.Proto())
+	log.Println("  Time       :", resp.Time())
+	log.Println("  Received At:", resp.ReceivedAt())
+	log.Println("  Body       :\n", resp)
+	log.Println()
+	result := resp.Result().(*responsedefault_listinvoice)
+	if result.Status == 200 {
+		return c.JSON(fiber.Map{
+			"status":       result.Status,
+			"message":      result.Message,
+			"record":       result.Record,
+			"totalwinlose": result.Totalwinlose,
+			"time":         time.Since(render_page).String(),
+		})
+	} else {
+		result_error := resp.Error().(*responseerror)
+		return c.JSON(fiber.Map{
+			"status":  result_error.Status,
+			"message": result_error.Message,
+			"time":    time.Since(render_page).String(),
+		})
+	}
+}
+func Companyinvoicelistpermainanmember(c *fiber.Ctx) error {
+	type payload_invoicelistpermainanmember struct {
+		Master    string `json:"master" `
+		Page      string `json:"page" `
+		Company   string `json:"company"`
+		Invoice   int    `json:"invoice"`
+		Username  string `json:"username" `
+		Permainan string `json:"permainan"`
+	}
+	hostname := c.Hostname()
+	bearToken := c.Get("Authorization")
+	token := strings.Split(bearToken, " ")
+	client := new(payload_invoicelistpermainanmember)
+	if err := c.BodyParser(client); err != nil {
+		c.Status(fiber.StatusBadRequest)
+		return c.JSON(fiber.Map{
+			"status":  fiber.StatusBadRequest,
+			"message": err.Error(),
+			"record":  nil,
+		})
+	}
+
+	render_page := time.Now()
+	axios := resty.New()
+	resp, err := axios.R().
+		SetResult(responsedefault_listinvoice{}).
+		SetAuthToken(token[1]).
+		SetError(responseerror{}).
+		SetHeader("Content-Type", "application/json").
+		SetBody(map[string]interface{}{
+			"client_hostname": hostname,
+			"page":            client.Page,
+			"company":         client.Company,
+			"invoice":         client.Invoice,
+			"username":        client.Username,
+			"permainan":       client.Permainan,
+		}).
+		Post(PATH + "api/companyinvoicelistpermainanmember")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	log.Println("Response Info:")
+	log.Println("  Error      :", err)
+	log.Println("  Status Code:", resp.StatusCode())
+	log.Println("  Status     :", resp.Status())
+	log.Println("  Proto      :", resp.Proto())
+	log.Println("  Time       :", resp.Time())
+	log.Println("  Received At:", resp.ReceivedAt())
+	log.Println("  Body       :\n", resp)
+	log.Println()
 	result := resp.Result().(*responsedefault_listinvoice)
 	if result.Status == 200 {
 		return c.JSON(fiber.Map{

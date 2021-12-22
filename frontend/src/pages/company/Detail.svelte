@@ -701,8 +701,7 @@
                             type="text"
                             class="form-control"
                             placeholder="Search"
-                            aria-label="Search"
-                        />
+                            aria-label="Search"/>
                     </div>
                 </slot:template>
                 <slot:template slot="cbody">
@@ -768,8 +767,8 @@
                                         <td
                                             on:click={() => {
                                                 editKeluaran(
-                                                    rec.pasaran_invoice,
-                                                    rec.pasaran_name
+                                                    rec.company_pasaran_invoice,
+                                                    rec.company_pasaran_name
                                                 );
                                             }}
                                             NOWRAP
