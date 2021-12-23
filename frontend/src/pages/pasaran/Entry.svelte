@@ -215,7 +215,7 @@
         dispatch("handleBackHalaman", "call");
     };
     async function call_pasaranconf() {
-        const res = await fetch("/api/detailconfpasaran", {
+        const res = await fetch("/api/pasarandetailconf", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -763,7 +763,7 @@
             msg += "The Disc 2DT is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconf432d", {
+            const res = await fetch("/api/savepasaran432", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -773,71 +773,31 @@
                     master: master,
                     idrecord: idpasarantogel,
                     pasaran_minbet_432d: parseInt(pasaran_minbet_432d_field),
-                    pasaran_maxbet4d_432d: parseInt(
-                        pasaran_maxbet4d_432d_field
-                    ),
-                    pasaran_maxbet3d_432d: parseInt(
-                        pasaran_maxbet3d_432d_field
-                    ),
-                    pasaran_maxbet2d_432d: parseInt(
-                        pasaran_maxbet2d_432d_field
-                    ),
-                    pasaran_maxbet2dd_432d: parseInt(
-                        pasaran_maxbet2dd_432d_field
-                    ),
-                    pasaran_maxbet2dt_432d: parseInt(
-                        pasaran_maxbet2dt_432d_field
-                    ),
-                    pasaran_limitotal4d_432d: parseInt(
-                        pasaran_limitotal4d_432d_field
-                    ),
-                    pasaran_limitotal3d_432d: parseInt(
-                        pasaran_limitotal3d_432d_field
-                    ),
-                    pasaran_limitotal2d_432d: parseInt(
-                        pasaran_limitotal2d_432d_field
-                    ),
-                    pasaran_limitotal2dd_432d: parseInt(
-                        pasaran_limitotal2dd_432d_field
-                    ),
-                    pasaran_limitotal2dt_432d: parseInt(
-                        pasaran_limitotal2dt_432d_field
-                    ),
-                    pasaran_limitglobal4d_432d: parseInt(
-                        pasaran_limitglobal4d_432d_field
-                    ),
-                    pasaran_limitglobal3d_432d: parseInt(
-                        pasaran_limitglobal3d_432d_field
-                    ),
-                    pasaran_limitglobal2d_432d: parseInt(
-                        pasaran_limitglobal2d_432d_field
-                    ),
-                    pasaran_limitglobal2dd_432d: parseInt(
-                        pasaran_limitglobal2dd_432d_field
-                    ),
-                    pasaran_limitglobal2dt_432d: parseInt(
-                        pasaran_limitglobal2dt_432d_field
-                    ),
+                    pasaran_maxbet4d_432d: parseInt(pasaran_maxbet4d_432d_field),
+                    pasaran_maxbet3d_432d: parseInt(pasaran_maxbet3d_432d_field),
+                    pasaran_maxbet2d_432d: parseInt(pasaran_maxbet2d_432d_field),
+                    pasaran_maxbet2dd_432d: parseInt(pasaran_maxbet2dd_432d_field),
+                    pasaran_maxbet2dt_432d: parseInt(pasaran_maxbet2dt_432d_field),
+                    pasaran_limitotal4d_432d: parseInt(pasaran_limitotal4d_432d_field),
+                    pasaran_limitotal3d_432d: parseInt(pasaran_limitotal3d_432d_field),
+                    pasaran_limitotal2d_432d: parseInt(pasaran_limitotal2d_432d_field),
+                    pasaran_limitotal2dd_432d: parseInt(pasaran_limitotal2dd_432d_field),
+                    pasaran_limitotal2dt_432d: parseInt(pasaran_limitotal2dt_432d_field),
+                    pasaran_limitglobal4d_432d: parseInt(pasaran_limitglobal4d_432d_field),
+                    pasaran_limitglobal3d_432d: parseInt(pasaran_limitglobal3d_432d_field),
+                    pasaran_limitglobal2d_432d: parseInt(pasaran_limitglobal2d_432d_field),
+                    pasaran_limitglobal2dd_432d: parseInt(pasaran_limitglobal2dd_432d_field),
+                    pasaran_limitglobal2dt_432d: parseInt(pasaran_limitglobal2dt_432d_field),
                     pasaran_win4d_432d: parseInt(pasaran_win4d_432d_field),
                     pasaran_win3d_432d: parseInt(pasaran_win3d_432d_field),
                     pasaran_win2d_432d: parseInt(pasaran_win2d_432d_field),
                     pasaran_win2dd_432d: parseInt(pasaran_win2dd_432d_field),
                     pasaran_win2dt_432d: parseInt(pasaran_win2dt_432d_field),
-                    pasaran_disc4d_432d: parseFloat(
-                        pasaran_disc4d_432d_field / 100
-                    ),
-                    pasaran_disc3d_432d: parseFloat(
-                        pasaran_disc3d_432d_field / 100
-                    ),
-                    pasaran_disc2d_432d: parseFloat(
-                        pasaran_disc2d_432d_field / 100
-                    ),
-                    pasaran_disc2dd_432d: parseFloat(
-                        pasaran_disc2dd_432d_field / 100
-                    ),
-                    pasaran_disc2dt_432d: parseFloat(
-                        pasaran_disc2dt_432d_field / 100
-                    ),
+                    pasaran_disc4d_432d: parseFloat(pasaran_disc4d_432d_field / 100),
+                    pasaran_disc3d_432d: parseFloat(pasaran_disc3d_432d_field / 100),
+                    pasaran_disc2d_432d: parseFloat(pasaran_disc2d_432d_field / 100),
+                    pasaran_disc2dd_432d: parseFloat(pasaran_disc2dd_432d_field / 100),
+                    pasaran_disc2dt_432d: parseFloat(pasaran_disc2dt_432d_field / 100),
                 }),
             });
             const json = await res.json();
@@ -883,7 +843,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconfcolokbebas", {
+            const res = await fetch("/api/savepasarancbebas", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -961,7 +921,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconfcolokmacau", {
+            const res = await fetch("/api/savepasarancmacau", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -970,24 +930,14 @@
                 body: JSON.stringify({
                     master: master,
                     idrecord: idpasarantogel,
-                    pasaran_minbet_cmacau: parseInt(
-                        pasaran_minbet_cmacau_field
-                    ),
-                    pasaran_maxbet_cmacau: parseInt(
-                        pasaran_maxbet_cmacau_field
-                    ),
-                    pasaran_limitotal_cmacau: parseInt(
-                        pasaran_limitotal_cmacau_field
-                    ),
-                    pasaran_limitglobal_cmacau: parseInt(
-                        pasaran_limitglobal_cmacau_field
-                    ),
+                    pasaran_minbet_cmacau: parseInt(pasaran_minbet_cmacau_field),
+                    pasaran_maxbet_cmacau: parseInt(pasaran_maxbet_cmacau_field),
+                    pasaran_limitotal_cmacau: parseInt(pasaran_limitotal_cmacau_field),
+                    pasaran_limitglobal_cmacau: parseInt(pasaran_limitglobal_cmacau_field),
                     pasaran_win2_cmacau: parseFloat(pasaran_win2_cmacau_field),
                     pasaran_win3_cmacau: parseFloat(pasaran_win3_cmacau_field),
                     pasaran_win4_cmacau: parseFloat(pasaran_win4_cmacau_field),
-                    pasaran_disc_cmacau: parseFloat(
-                        pasaran_disc_cmacau_field / 100
-                    ),
+                    pasaran_disc_cmacau: parseFloat(pasaran_disc_cmacau_field / 100),
                 }),
             });
             const json = await res.json();
@@ -1037,7 +987,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconfcoloknaga", {
+            const res = await fetch("/api/savepasarancnaga", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1116,7 +1066,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconfcolokjitu", {
+            const res = await fetch("/api/savepasarancjitu", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1231,7 +1181,7 @@
             msg += "The Disc Tepi is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconf5050umum", {
+            const res = await fetch("/api/savepasaran5050umum", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1453,7 +1403,7 @@
             msg += "The Disc Ekor Kecil is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconf5050special", {
+            const res = await fetch("/api/savepasaran5050special", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1727,7 +1677,7 @@
             msg += "The Depan Disc Kembar is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconf5050kombinasi", {
+            const res = await fetch("/api/savepasaran5050kombinasi", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1883,7 +1833,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconfmacaukombinasi", {
+            const res = await fetch("/api/savepasaranmacau", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1979,7 +1929,7 @@
             msg += "The Diskon Ganjil is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconfdasar", {
+            const res = await fetch("/api/savepasarandasar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -2065,7 +2015,7 @@
             msg += "The Diskon is required\n";
         }
         if (flag == false) {
-            const res = await fetch("/api/savepasaranconfshio", {
+            const res = await fetch("/api/savepasaranshio", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -37,7 +37,7 @@
         editPasaran(idpasarantogel);
     };
     async function initapp() {
-        const res = await fetch("/api/home", {
+        const res = await fetch("/api/init", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -45,6 +45,7 @@
             },
             body: JSON.stringify({
                 master: master,
+                page: "PASARAN_HOME",
             }),
         });
         const json = await res.json();
@@ -68,14 +69,16 @@
         });
         const json = await res.json();
         if (json.status == 200) {
+            let no = 0;
             record = json.record;
             totalrecord = record.length;
             if (record != null) {
                 for (var i = 0; i < record.length; i++) {
+                    no = no + 1
                     listPasaran = [
                         ...listPasaran,
                         {
-                            pasaran_no: record[i]["pasaran_no"],
+                            pasaran_no: no,
                             pasaran_idpasarantogel: record[i]["pasaran_idpasarantogel"],
                             pasaran_nmpasarantogel: record[i]["pasaran_nmpasarantogel"],
                             pasaran_tipepasaran: record[i]["pasaran_tipepasaran"],
@@ -91,11 +94,11 @@
                 alert("Error");
             }
         } else {
-            logout();
+            // logout();
         }
     }
     async function editPasaran(e) {
-        const res = await fetch("/api/detailpasaran", {
+        const res = await fetch("/api/pasarandetail", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

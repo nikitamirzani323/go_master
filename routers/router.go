@@ -67,5 +67,20 @@ func Init() *fiber.App {
 	app.Post("/api/fetchpasaranshio", controller.Companyfetchpasaranshio)
 
 	app.Post("/api/allpasaran", controller.Pasaran)
+	app.Post("/api/pasarandetail", controller.Pasarandetail)
+	app.Post("/api/pasarandetailconf", controller.Pasarandetailconf)
+	app.Post("/api/savepasaran", controller.Savepasaran)
+	app.Post("/api/savepasaranlimitline", controller.Savepasaranlimitline)
+	app.Post("/api/savepasaran432", controller.Savepasaran432)
+	app.Post("/api/savepasarancbebas", controller.Savepasarancbebas)
+	app.Post("/api/savepasarancmacau", controller.Savepasarancmacau)
+	app.Post("/api/savepasarancnaga", controller.Savepasarancnaga)
+	app.Post("/api/savepasarancjitu", controller.Savepasarancjitu)
+	app.Post("/api/savepasaran5050umum", controller.Savepasaran5050umum)
+	app.Post("/api/savepasaran5050special", controller.Savepasaran5050special)
+	app.Post("/api/savepasaran5050kombinasi", controller.Savepasaran5050kombinasi)
+	app.Post("/api/savepasaranmacau", controller.Savepasaranmacau)
+	app.Post("/api/savepasarandasar", controller.Savepasarandasar)
+	app.Post("/api/savepasaranshio", controller.Savepasaranshio)
 	return app
 }
