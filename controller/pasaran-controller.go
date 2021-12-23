@@ -610,13 +610,15 @@ func Savepasarancjitu(c *fiber.Ctx) error {
 	type payload_pasarancnaga struct {
 		Master                    string  `json:"master" `
 		Idrecord                  string  `json:"idrecord" `
-		Pasaran_minbet_cnaga      int     `json:"pasaran_minbet_cnaga" `
-		Pasaran_maxbet_cnaga      int     `json:"pasaran_maxbet_cnaga" `
-		Pasaran_limittotal_cnaga  int     `json:"pasaran_limittotal_cnaga" `
-		Pasaran_limitglobal_cnaga int     `json:"pasaran_limitglobal_cnaga"`
-		Pasaran_win3_cnaga        float32 `json:"pasaran_win3_cnaga"`
-		Pasaran_win4_cnaga        float32 `json:"pasaran_win4_cnaga"`
-		Pasaran_disc_cnaga        float32 `json:"pasaran_disc_cnaga"`
+		Pasaran_minbet_cjitu      int     `json:"pasaran_minbet_cjitu"`
+		Pasaran_maxbet_cjitu      int     `json:"pasaran_maxbet_cjitu"`
+		Pasaran_limittotal_cjitu  int     `json:"pasaran_limittotal_cjitu"`
+		Pasaran_limitglobal_cjitu int     `json:"pasaran_limitglobal_cjitu"`
+		Pasaran_winas_cjitu       float32 `json:"pasaran_winas_cjitu"`
+		Pasaran_winkop_cjitu      float32 `json:"pasaran_winkop_cjitu"`
+		Pasaran_winkepala_cjitu   float32 `json:"pasaran_winkepala_cjitu"`
+		Pasaran_winekor_cjitu     float32 `json:"pasaran_winekor_cjitu"`
+		Pasaran_desc_cjitu        float32 `json:"pasaran_desc_cjitu"`
 	}
 	hostname := c.Hostname()
 	bearToken := c.Get("Authorization")
@@ -643,18 +645,29 @@ func Savepasarancjitu(c *fiber.Ctx) error {
 			"client_hostname":           hostname,
 			"master":                    client.Master,
 			"idrecord":                  client.Idrecord,
-			"pasaran_minbet_cnaga":      client.Pasaran_minbet_cnaga,
-			"pasaran_maxbet_cnaga":      client.Pasaran_maxbet_cnaga,
-			"pasaran_limittotal_cnaga":  client.Pasaran_limittotal_cnaga,
-			"pasaran_limitglobal_cnaga": client.Pasaran_limitglobal_cnaga,
-			"pasaran_win3_cnaga":        client.Pasaran_win3_cnaga,
-			"pasaran_win4_cnaga":        client.Pasaran_win4_cnaga,
-			"pasaran_disc_cnaga":        client.Pasaran_disc_cnaga,
+			"pasaran_minbet_cjitu":      client.Pasaran_minbet_cjitu,
+			"pasaran_maxbet_cjitu":      client.Pasaran_maxbet_cjitu,
+			"pasaran_limittotal_cjitu":  client.Pasaran_limittotal_cjitu,
+			"pasaran_limitglobal_cjitu": client.Pasaran_limitglobal_cjitu,
+			"pasaran_winas_cjitu":       client.Pasaran_winas_cjitu,
+			"pasaran_winkop_cjitu":      client.Pasaran_winkop_cjitu,
+			"pasaran_winkepala_cjitu":   client.Pasaran_winkepala_cjitu,
+			"pasaran_winekor_cjitu":     client.Pasaran_winekor_cjitu,
+			"pasaran_desc_cjitu":        client.Pasaran_desc_cjitu,
 		}).
 		Post(PATH + "api/savepasaranconfcolokjitu")
 	if err != nil {
 		log.Println(err.Error())
 	}
+	log.Println("Response Info:")
+	log.Println("  Error      :", err)
+	log.Println("  Status Code:", resp.StatusCode())
+	log.Println("  Status     :", resp.Status())
+	log.Println("  Proto      :", resp.Proto())
+	log.Println("  Time       :", resp.Time())
+	log.Println("  Received At:", resp.ReceivedAt())
+	log.Println("  Body       :\n", resp)
+	log.Println()
 	result := resp.Result().(*responsedefault)
 	if result.Status == 200 {
 		return c.JSON(fiber.Map{
