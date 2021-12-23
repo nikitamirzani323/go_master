@@ -82,5 +82,8 @@ func Init() *fiber.App {
 	app.Post("/api/savepasaranmacau", controller.Savepasaranmacau)
 	app.Post("/api/savepasarandasar", controller.Savepasarandasar)
 	app.Post("/api/savepasaranshio", controller.Savepasaranshio)
+
+	app.Post("/api/setting", controller.Setting)
+	app.Post("/api/savesetting", controller.Settingsave)
 	return app
 }

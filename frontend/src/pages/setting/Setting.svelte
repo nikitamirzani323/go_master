@@ -6,7 +6,7 @@
     let maintenance_start_field = ""
     let maintenance_end_field = ""
     async function initapp() {
-        const res = await fetch("/api/home", {
+        const res = await fetch("/api/init", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -14,6 +14,7 @@
             },
             body: JSON.stringify({
                 master: master,
+                page: "SETTING_HOME",
             }),
         });
         const json = await res.json();
