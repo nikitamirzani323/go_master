@@ -74,7 +74,7 @@
     async function UpdateWinlose(e) {
         css_loader = "display: inline-block;";
         msgloader = "Sending...";
-        const res = await fetch("/api/saveinvoicewinlosestatus", {
+        const res = await fetch("/api/saveinvoicewinlose", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -100,7 +100,7 @@
     async function UpdateStatus(e) {
         css_loader = "display: inline-block;";
         msgloader = "Sending...";
-        const res = await fetch("/api/saveinvoicewinlosestatus", {
+        const res = await fetch("/api/saveinvoicewinlose", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -144,8 +144,7 @@
                     RefreshHalaman();
                 }}
                 class="btn btn-primary btn-sm"
-                style="border-radius: 0px;"
-            >
+                style="border-radius: 0px;">
                 Refresh
             </button>
             <button
@@ -153,8 +152,7 @@
                     NewData();
                 }}
                 class="btn btn-primary btn-sm"
-                style="border-radius: 0px;"
-            >
+                style="border-radius: 0px;">
                 New
             </button>
             <Panel height_body="{screen_height}px">
@@ -180,50 +178,34 @@
                                     <th
                                         colspan="2"
                                         width="1%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >&nbsp;</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">&nbsp;</th>
                                     <th
                                         width="1%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >NO</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">NO</th>
                                     <th
                                         NOWRAP
                                         width="1%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >&nbsp;</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">&nbsp;</th>
                                     <th
                                         NOWRAP
                                         width="5%"
-                                        style="text-align: center;vertical-align:top;font-size: 14px;"
-                                        >DATE</th
-                                    >
+                                        style="text-align: center;vertical-align:top;font-size: 14px;">DATE</th>
                                     <th
                                         NOWRAP
                                         width="5%"
-                                        style="text-align: left;vertical-align:top;font-size: 14px;"
-                                        >INVOICE</th
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size: 14px;">INVOICE</th>
                                     <th
                                         NOWRAP
                                         width="*"
-                                        style="text-align: left;vertical-align:top;font-size: 14px;"
-                                        >COMPANY</th
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size: 14px;">COMPANY</th>
                                     <th
                                         NOWRAP
                                         width="10%"
-                                        style="text-align: left;vertical-align:top;font-size: 14px;"
-                                        >PERIODE</th
-                                    >
+                                        style="text-align: left;vertical-align:top;font-size: 14px;">PERIODE</th>
                                     <th
                                         NOWRAP
                                         width="10%"
-                                        style="text-align: right;vertical-align:top;font-size: 14px;"
-                                        >WINLOSE</th
-                                    >
+                                        style="text-align: right;vertical-align:top;font-size: 14px;">WINLOSE</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -233,7 +215,7 @@
                                             NOWRAP
                                             title="Update winlose"
                                             style="text-align: center;vertical-align:top;font-size: 13px;cursor:pointer;">
-                                            {#if rec.invoice_status == "RUNNING"}
+                                            {#if rec.invoice_status == "PROGRESS"}
                                             <i
                                                 on:click={() => {
                                                     UpdateWinlose(rec.invoice_id);
@@ -245,7 +227,7 @@
                                             NOWRAP
                                             title="Update Status"
                                             style="text-align: center;vertical-align:top;font-size: 13px;cursor:pointer;">
-                                            {#if rec.invoice_status == "RUNNING"}
+                                            {#if rec.invoice_status == "PROGRESS"}
                                             <i 
                                                 on:click={() => {
                                                     UpdateStatus(rec.invoice_id);
@@ -255,34 +237,22 @@
                                         </td>
                                         <td
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;"
-                                            >{rec.invoice_no}</td
-                                        >
+                                            style="text-align: center;vertical-align:top;font-size: 13px;">{rec.invoice_no}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;{rec.invoice_statuscss}"
-                                            >{rec.invoice_status}</td
-                                        >
-
+                                            style="text-align: center;vertical-align:top;font-size: 13px;{rec.invoice_statuscss}">{rec.invoice_status}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: center;vertical-align:top;font-size: 13px;"
-                                            >{rec.invoice_date}</td
-                                        >
+                                            style="text-align: center;vertical-align:top;font-size: 13px;">{rec.invoice_date}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: left;vertical-align:top;font-size: 13px;"
-                                            >{rec.invoice_id}</td
-                                        >
+                                            style="text-align: left;vertical-align:top;font-size: 13px;">{rec.invoice_id}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: left;vertical-align:top;font-size: 13px;"
-                                            >{rec.invoice_company}</td
-                                        >
+                                            style="text-align: left;vertical-align:top;font-size: 13px;">{rec.invoice_company}</td>
                                         <td
                                             NOWRAP
-                                            style="text-align: left;vertical-align:top;font-size: 13px;"
-                                            >{rec.invoice_name}</td>
+                                            style="text-align: left;vertical-align:top;font-size: 13px;">{rec.invoice_name}</td>
                                         <td
                                             NOWRAP
                                             style="text-align: right;vertical-align:top;font-size: 13px;{rec.invoice_winlose_css}">

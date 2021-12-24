@@ -3,7 +3,7 @@
     let token = localStorage.getItem("token");
     let master = localStorage.getItem("master");
     async function initapp() {
-        const res = await fetch("/api/home", {
+        const res = await fetch("/api/init", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -11,9 +11,11 @@
             },
             body: JSON.stringify({
                 master: master,
+                page: "ADMIN_HOME",
             }),
         });
         const json = await res.json();
+        console.log(json)
         if (json.status === 400) {
             localStorage.clear();
             window.location.href = "/";

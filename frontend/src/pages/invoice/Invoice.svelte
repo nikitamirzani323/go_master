@@ -8,7 +8,7 @@
     let totalrecord = 0;
 
     async function initapp() {
-        const res = await fetch("/api/home", {
+        const res = await fetch("/api/init", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -16,6 +16,7 @@
             },
             body: JSON.stringify({
                 master: master,
+                page: "INVOICE_HOME",
             }),
         });
         const json = await res.json();
@@ -26,7 +27,7 @@
         }
     }
     async function initInvoice() {
-        const res = await fetch("/api/allinvoice", {
+        const res = await fetch("/api/invoice", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
