@@ -9,6 +9,7 @@
 	import Pasaran from "./pages/pasaran/Pasaran.svelte";
 	import Invoice from "./pages/Invoice/Invoice.svelte";
 	import Setting from "./pages/Setting/Setting.svelte";
+	import Domain from "./pages/domain/Domain.svelte";
 	import NotFound from "./pages/NotFound.svelte";
 	let token = localStorage.getItem("token");
 	let routes = "";
@@ -25,6 +26,9 @@
 		routes = {
 			"/": wrap({
 				component: Home,
+			}),
+			"/domain": wrap({
+				component: Domain,
 			}),
 			"/invoice": wrap({
 				component: Invoice,

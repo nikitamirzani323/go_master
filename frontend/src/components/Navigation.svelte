@@ -45,8 +45,7 @@
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              style="font-size: 13px;"
-            >
+              style="font-size: 13px;">
               COMPANY
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -69,13 +68,12 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <a class="dropdown-item" style="font-size: 13px;" use:link href="/pasaran">PASARAN</a>
+                <a class="dropdown-item" style="font-size: 13px;" use:link href="/domain">DOMAIN</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" style="font-size: 13px;" use:link href="/setting"
-              >SETTING</a
-            >
+            <a class="nav-link active" aria-current="page" style="font-size: 13px;" use:link href="/setting">SETTING</a>
           </li>
         </ul>
         <form class="d-flex">
