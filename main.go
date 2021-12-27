@@ -13,5 +13,5 @@ func main() {
 		panic("Failed to load env file")
 	}
 	app := routers.Init()
-	log.Fatal(app.Listen(":7075"))
+	log.Fatal(app.Listen(":7072"))
 }
