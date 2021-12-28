@@ -891,17 +891,21 @@
         myModalPasaran.show();
     };
     const editPasaran = (idcomppasaran, idpasarantogel, nmpasaran) => {
-        sData = "Edit";
-        let myModalPasaran = new bootstrap.Modal(
-            document.getElementById("modalEditPasaran")
-        );
-        myModalPasaran.show();
-        listPasaranonline = [];
-        pasaran_nmpasarantogel_field = nmpasaran;
-        companypasaran_id_field = idcomppasaran;
-        pasaran_id_field = idpasarantogel;
-        call_listpasaranconf();
-        call_listpasaranonline();
+        if(company_status_field == "ACTIVE"){
+            sData = "Edit";
+            let myModalPasaran = new bootstrap.Modal(
+                document.getElementById("modalEditPasaran")
+            );
+            myModalPasaran.show();
+            listPasaranonline = [];
+            pasaran_nmpasarantogel_field = nmpasaran;
+            companypasaran_id_field = idcomppasaran;
+            pasaran_id_field = idpasarantogel;
+            call_listpasaranconf();
+            call_listpasaranonline();
+        }else{
+            alert("Maaf Status Company ini adalah Deactive")
+        }
     };
     async function saveNewPasaran() {
         let flag = false;
@@ -4797,23 +4801,22 @@
                 <div class="card-header" style="">
                     Company / {sData}
                     <div class="float-end">
+                        {#if company_status_field == "ACTIVE"}
                         <button
                             on:click={() => {
                                 saveEntry();
                             }}
                             class="btn btn-warning btn-sm"
-                            style="border-radius: 0px;"
-                        >
+                            style="border-radius: 0px;">
                             Save
                         </button>
+                        {/if}
                     </div>
                 </div>
                 <div class="card-body" style="height:450px;">
                     <Row>
                         <div class="mb-3">
-                            <label for="exampleForm" class="form-label"
-                                >ID</label
-                            >
+                            <label for="exampleForm" class="form-label">ID</label>
                             <input
                                 bind:value={idcompany}
                                 type="text"
@@ -4824,28 +4827,22 @@
                             />
                         </div>
                         <div class="mb-3">
-                            <label for="exampleForm" class="form-label"
-                                >Company</label
-                            >
+                            <label for="exampleForm" class="form-label">Company</label>
                             <input
                                 bind:value={company_name_field}
                                 type="text"
                                 class="form-control required"
                                 placeholder="Company"
-                                aria-label="Company"
-                            />
+                                aria-label="Company"/>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleForm" class="form-label"
-                                >URL</label
-                            >
+                            <label for="exampleForm" class="form-label">URL</label>
                             <input
                                 bind:value={company_url_field}
                                 type="text"
                                 class="form-control required"
                                 placeholder="URL"
-                                aria-label="URL"
-                            />
+                                aria-label="URL"/>
                         </div>
                         <div class="mb-3">
                             <label for="exampleForm" class="form-label"
@@ -4886,6 +4883,7 @@
                 <slot:template slot="cheader">
                     List Admin
                     <div class="float-end">
+                        {#if company_status_field == "ACTIVE"}
                         <button
                             on:click={() => {
                                 newAdmin();
@@ -4894,6 +4892,7 @@
                             style="border-radius: 0px;">
                             New
                         </button>
+                        {/if}
                     </div>
                 </slot:template>
                 <slot:template slot="csearch">
@@ -4978,6 +4977,7 @@
                 <slot:template slot="cheader">
                     List Pasaran
                     <div class="float-end">
+                        {#if company_status_field == "ACTIVE"}
                         <button
                             on:click={() => {
                                 newPasaran();
@@ -4986,6 +4986,7 @@
                             style="border-radius: 0px;">
                             New
                         </button>
+                        {/if}
                     </div>
                 </slot:template>
                 <slot:template slot="csearch">
