@@ -60,6 +60,7 @@
                             domain_no: no,
                             domain_iddomain: record[i]["domain_iddomain"],
                             domain_name: record[i]["domain_name"],
+                            domain_tipe: record[i]["domain_tipe"],
                             domain_status: record[i]["domain_status"],
                             domain_create: record[i]["domain_create"],
                             domain_update: record[i]["domain_update"],

@@ -18,6 +18,7 @@
     let sData = "";
     let myModal_newentry = "";
     let domain_field = "";
+    let tipe_field = "";
     let status_field = "";
     let idrecord = "";
     let searchDomain = "";
@@ -37,7 +38,7 @@
         }
     }
     
-    const NewData = (e,id,domain,status) => {
+    const NewData = (e,id,domain,tipe,status) => {
         let flag_modal = true;
         sData = e
         if(sData == "New"){
@@ -49,6 +50,7 @@
             }
             idrecord = parseInt(id)
             domain_field = domain;
+            tipe_field = tipe;
             status_field = status;
         }
         if(flag_modal){
@@ -69,6 +71,10 @@
                 flag = false
                 msg += "The Domain is required\n"
             }
+            if(tipe_field == ""){
+                flag = false
+                msg += "The Tipe is required\n"
+            }
             if(status_field == ""){
                 flag = false
                 msg += "The Status is required\n"
@@ -77,6 +83,10 @@
             if(idrecord == ""){
                 flag = false
                 msg += "The ID is required\n"
+            }
+            if(tipe_field == ""){
+                flag = false
+                msg += "The Tipe is required\n"
             }
             if(domain_field == ""){
                 flag = false
@@ -103,6 +113,7 @@
                     page:"DOMAIN-SAVE",
                     domain_id: parseInt(idrecord),
                     domain_name: domain_field,
+                    domain_tipe: tipe_field,
                     domain_status: status_field,
                 }),
             });
@@ -129,6 +140,7 @@
     function clearField(){
         idrecord = "";
         domain_field = "";
+        tipe_field = "";
         status_field = "";
     }
     function callFunction(event){
@@ -192,6 +204,7 @@
                                 <th NOWRAP width="1%" style="text-align: center;vertical-align: top;" >&nbsp;</th>
                                 <th NOWRAP width="1%" style="text-align: center;vertical-align: top;font-weight:bold;font-size:{table_header_font};">NO</th>
                                 <th NOWRAP width="1%" style="text-align: center;vertical-align: top;font-weight:bold;font-size:{table_header_font};">STATUS</th>
+                                <th NOWRAP width="10%" style="text-align: left;vertical-align: top;font-weight:bold;font-size:{table_header_font};">TIPE</th>
                                 <th NOWRAP width="*" style="text-align: left;vertical-align: top;font-weight:bold;font-size: {table_header_font};">DOMAIN</th>
                             </tr>
                         </thead>
@@ -202,12 +215,13 @@
                                     <td NOWRAP style="text-align: center;vertical-align: top;cursor:pointer;">
                                         <i 
                                             on:click={() => {
-                                                NewData("Edit",rec.domain_iddomain,rec.domain_name, rec.domain_status);
+                                                NewData("Edit",rec.domain_iddomain,rec.domain_name,rec.domain_tipe ,rec.domain_status);
                                             }} 
                                             class="bi bi-pencil"></i>
                                     </td>
                                     <td NOWRAP style="text-align: center;vertical-align: top;font-size: {table_body_font};">{rec.domain_no}</td>
                                     <td NOWRAP style="text-align: center;vertical-align: top;font-size: {table_body_font};{rec.tafsirmimpi_statuscss}">{rec.domain_status}</td>
+                                    <td  style="text-align: left;vertical-align: top;font-size: {table_body_font};">{rec.domain_tipe}</td>
                                     <td  style="text-align: left;vertical-align: top;font-size: {table_body_font};">{rec.domain_name}</td>
                                 </tr>
                             {/each}
@@ -244,6 +258,13 @@
                 class="required"
                 type="text"
                 placeholder="Domain"/>
+        </div>
+        <div class="mb-3">
+            <label for="exampleForm" class="form-label">Tipe</label>
+            <select class="form-control required" bind:value="{tipe_field}">
+                <option value="FRONTEND">FRONTEND</option>
+                <option value="AGEN">AGEN</option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="exampleForm" class="form-label">Status</label>

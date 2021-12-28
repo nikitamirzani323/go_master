@@ -75,6 +75,7 @@ func Savedomain(c *fiber.Ctx) error {
 		Page          string `json:"page" `
 		Domain_id     int    `json:"domain_id"`
 		Domain_name   string `json:"domain_name" `
+		Domain_tipe   string `json:"domain_tipe" `
 		Domain_status string `json:"domain_status" `
 	}
 	hostname := c.Hostname()
@@ -105,6 +106,7 @@ func Savedomain(c *fiber.Ctx) error {
 			"page":            client.Page,
 			"domain_id":       client.Domain_id,
 			"domain_name":     client.Domain_name,
+			"domain_tipe":     client.Domain_tipe,
 			"domain_status":   client.Domain_status,
 		}).
 		Post(PATH + "api/savedomain")
