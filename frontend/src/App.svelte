@@ -7,8 +7,8 @@
 	import Home from "./pages/home/Home.svelte";
 	import Company from "./pages/company/Company.svelte";
 	import Pasaran from "./pages/pasaran/Pasaran.svelte";
-	import Invoice from "./pages/Invoice/Invoice.svelte";
-	import Setting from "./pages/Setting/Setting.svelte";
+	import Invoice from "./pages/invoice/Invoice.svelte";
+	import Setting from "./pages/setting/Setting.svelte";
 	import Domain from "./pages/domain/Domain.svelte";
 	import NotFound from "./pages/NotFound.svelte";
 	let token = localStorage.getItem("token");
