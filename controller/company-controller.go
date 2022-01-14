@@ -1116,6 +1116,7 @@ func Companysaveupdatepasaranline(c *fiber.Ctx) error {
 		Pasaran_id            string `json:"pasaran_id" `
 		Pasaran_limitline_4d  int    `json:"pasaran_limitline_4d" `
 		Pasaran_limitline_3d  int    `json:"pasaran_limitline_3d" `
+		Pasaran_limitline_3dd int    `json:"pasaran_limitline_3dd" `
 		Pasaran_limitline_2d  int    `json:"pasaran_limitline_2d" `
 		Pasaran_limitline_2dd int    `json:"pasaran_limitline_2dd" `
 		Pasaran_limitline_2dt int    `json:"pasaran_limitline_2dt" `
@@ -1150,6 +1151,7 @@ func Companysaveupdatepasaranline(c *fiber.Ctx) error {
 			"pasaran_id":            client.Pasaran_id,
 			"pasaran_limitline_4d":  client.Pasaran_limitline_4d,
 			"pasaran_limitline_3d":  client.Pasaran_limitline_3d,
+			"pasaran_limitline_3dd": client.Pasaran_limitline_3dd,
 			"pasaran_limitline_2d":  client.Pasaran_limitline_2d,
 			"pasaran_limitline_2dd": client.Pasaran_limitline_2dd,
 			"pasaran_limitline_2dt": client.Pasaran_limitline_2dt,
@@ -1159,6 +1161,15 @@ func Companysaveupdatepasaranline(c *fiber.Ctx) error {
 	if err != nil {
 		log.Println(err.Error())
 	}
+	log.Println("Response Info:")
+	log.Println("  Error      :", err)
+	log.Println("  Status Code:", resp.StatusCode())
+	log.Println("  Status     :", resp.Status())
+	log.Println("  Proto      :", resp.Proto())
+	log.Println("  Time       :", resp.Time())
+	log.Println("  Received At:", resp.ReceivedAt())
+	log.Println("  Body       :\n", resp)
+	log.Println()
 	result := resp.Result().(*responsedefault)
 
 	if result.Status == 200 {
@@ -1311,26 +1322,31 @@ func Companyupdatepasaran432(c *fiber.Ctx) error {
 		Pasaran_minbet_432d         int     `json:"pasaran_minbet_432d" `
 		Pasaran_maxbet4d_432d       int     `json:"pasaran_maxbet4d_432d" `
 		Pasaran_maxbet3d_432d       int     `json:"pasaran_maxbet3d_432d" `
+		Pasaran_maxbet3dd_432d      int     `json:"pasaran_maxbet3dd_432d" `
 		Pasaran_maxbet2d_432d       int     `json:"pasaran_maxbet2d_432d" `
 		Pasaran_maxbet2dd_432d      int     `json:"pasaran_maxbet2dd_432d" `
 		Pasaran_maxbet2dt_432d      int     `json:"pasaran_maxbet2dt_432d" `
 		Pasaran_limitotal4d_432d    int     `json:"pasaran_limitotal4d_432d" `
 		Pasaran_limitotal3d_432d    int     `json:"pasaran_limitotal3d_432d" `
+		Pasaran_limitotal3dd_432d   int     `json:"pasaran_limitotal3dd_432d" `
 		Pasaran_limitotal2d_432d    int     `json:"pasaran_limitotal2d_432d" `
 		Pasaran_limitotal2dd_432d   int     `json:"pasaran_limitotal2dd_432d" `
 		Pasaran_limitotal2dt_432d   int     `json:"pasaran_limitotal2dt_432d" `
 		Pasaran_limitglobal4d_432d  int     `json:"pasaran_limitglobal4d_432d" `
 		Pasaran_limitglobal3d_432d  int     `json:"pasaran_limitglobal3d_432d" `
+		Pasaran_limitglobal3dd_432d int     `json:"pasaran_limitglobal3dd_432d" `
 		Pasaran_limitglobal2d_432d  int     `json:"pasaran_limitglobal2d_432d" `
 		Pasaran_limitglobal2dd_432d int     `json:"pasaran_limitglobal2dd_432d" `
 		Pasaran_limitglobal2dt_432d int     `json:"pasaran_limitglobal2dt_432d"`
 		Pasaran_win4d_432d          int     `json:"pasaran_win4d_432d" `
 		Pasaran_win3d_432d          int     `json:"pasaran_win3d_432d" `
+		Pasaran_win3dd_432d         int     `json:"pasaran_win3dd_432d" `
 		Pasaran_win2d_432d          int     `json:"pasaran_win2d_432d" `
 		Pasaran_win2dd_432d         int     `json:"pasaran_win2dd_432d" `
 		Pasaran_win2dt_432d         int     `json:"pasaran_win2dt_432d" `
 		Pasaran_disc4d_432d         float32 `json:"pasaran_disc4d_432d" `
 		Pasaran_disc3d_432d         float32 `json:"pasaran_disc3d_432d" `
+		Pasaran_disc3dd_432d        float32 `json:"pasaran_disc3dd_432d" `
 		Pasaran_disc2d_432d         float32 `json:"pasaran_disc2d_432d" `
 		Pasaran_disc2dd_432d        float32 `json:"pasaran_disc2dd_432d" `
 		Pasaran_disc2dt_432d        float32 `json:"pasaran_disc2dt_432d" `
@@ -1365,26 +1381,31 @@ func Companyupdatepasaran432(c *fiber.Ctx) error {
 			"pasaran_minbet_432d":         client.Pasaran_minbet_432d,
 			"pasaran_maxbet4d_432d":       client.Pasaran_maxbet4d_432d,
 			"pasaran_maxbet3d_432d":       client.Pasaran_maxbet3d_432d,
+			"pasaran_maxbet3dd_432d":      client.Pasaran_maxbet3dd_432d,
 			"pasaran_maxbet2d_432d":       client.Pasaran_maxbet2d_432d,
 			"pasaran_maxbet2dd_432d":      client.Pasaran_maxbet2dd_432d,
 			"pasaran_maxbet2dt_432d":      client.Pasaran_maxbet2dt_432d,
 			"pasaran_limitotal4d_432d":    client.Pasaran_limitotal4d_432d,
 			"pasaran_limitotal3d_432d":    client.Pasaran_limitotal3d_432d,
+			"pasaran_limitotal3dd_432d":   client.Pasaran_limitotal3dd_432d,
 			"pasaran_limitotal2d_432d":    client.Pasaran_limitotal2d_432d,
 			"pasaran_limitotal2dd_432d":   client.Pasaran_limitotal2dd_432d,
 			"pasaran_limitotal2dt_432d":   client.Pasaran_limitotal2dt_432d,
 			"pasaran_limitglobal4d_432d":  client.Pasaran_limitglobal4d_432d,
 			"pasaran_limitglobal3d_432d":  client.Pasaran_limitglobal3d_432d,
+			"pasaran_limitglobal3dd_432d": client.Pasaran_limitglobal3dd_432d,
 			"pasaran_limitglobal2d_432d":  client.Pasaran_limitglobal2d_432d,
 			"pasaran_limitglobal2dd_432d": client.Pasaran_limitglobal2dd_432d,
 			"pasaran_limitglobal2dt_432d": client.Pasaran_limitglobal2dt_432d,
 			"pasaran_win4d_432d":          client.Pasaran_win4d_432d,
 			"pasaran_win3d_432d":          client.Pasaran_win3d_432d,
+			"pasaran_win3dd_432d":         client.Pasaran_win3dd_432d,
 			"pasaran_win2d_432d":          client.Pasaran_win2d_432d,
 			"pasaran_win2dd_432d":         client.Pasaran_win2dd_432d,
 			"pasaran_win2dt_432d":         client.Pasaran_win2dt_432d,
 			"pasaran_disc4d_432d":         client.Pasaran_disc4d_432d,
 			"pasaran_disc3d_432d":         client.Pasaran_disc3d_432d,
+			"pasaran_disc3dd_432d":        client.Pasaran_disc3dd_432d,
 			"pasaran_disc2d_432d":         client.Pasaran_disc2d_432d,
 			"pasaran_disc2dd_432d":        client.Pasaran_disc2dd_432d,
 			"pasaran_disc2dt_432d":        client.Pasaran_disc2dt_432d,

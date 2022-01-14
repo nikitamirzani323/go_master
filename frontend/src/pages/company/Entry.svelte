@@ -46,6 +46,7 @@
 
     let pasaran_limitline4d_field = 0;
     let pasaran_limitline3d_field = 0;
+    let pasaran_limitline3dd_field = 0;
     let pasaran_limitline2d_field = 0;
     let pasaran_limitline2dd_field = 0;
     let pasaran_limitline2dt_field = 0;
@@ -53,26 +54,31 @@
     let pasaran_minbet_432d_field = 0;
     let pasaran_maxbet4d_432d_field = 0;
     let pasaran_maxbet3d_432d_field = 0;
+    let pasaran_maxbet3dd_432d_field = 0;
     let pasaran_maxbet2d_432d_field = 0;
     let pasaran_maxbet2dd_432d_field = 0;
     let pasaran_maxbet2dt_432d_field = 0;
     let pasaran_limitotal4d_432d_field = 0;
     let pasaran_limitotal3d_432d_field = 0;
+    let pasaran_limitotal3dd_432d_field = 0;
     let pasaran_limitotal2d_432d_field = 0;
     let pasaran_limitotal2dd_432d_field = 0;
     let pasaran_limitotal2dt_432d_field = 0;
     let pasaran_limitglobal4d_432d_field = 0;
     let pasaran_limitglobal3d_432d_field = 0;
+    let pasaran_limitglobal3dd_432d_field = 0;
     let pasaran_limitglobal2d_432d_field = 0;
     let pasaran_limitglobal2dd_432d_field = 0;
     let pasaran_limitglobal2dt_432d_field = 0;
     let pasaran_disc4d_432d_field = 0;
     let pasaran_disc3d_432d_field = 0;
+    let pasaran_disc3dd_432d_field = 0;
     let pasaran_disc2d_432d_field = 0;
     let pasaran_disc2dd_432d_field = 0;
     let pasaran_disc2dt_432d_field = 0;
     let pasaran_win4d_432d_field = 0;
     let pasaran_win3d_432d_field = 0;
+    let pasaran_win3dd_432d_field = 0;
     let pasaran_win2d_432d_field = 0;
     let pasaran_win2dd_432d_field = 0;
     let pasaran_win2dt_432d_field = 0;
@@ -348,9 +354,7 @@
                     ];
                 }
             }
-        } else {
-            logout();
-        }
+        } 
     }
     async function call_listpasaran() {
         const res = await fetch("/api/companylistpasaran", {
@@ -441,9 +445,7 @@
                     ];
                 }
             }
-        } else {
-            logout();
-        }
+        } 
     }
     async function call_listpasaranonline() {
         const res = await fetch("/api/companypasaranonline", {
@@ -476,9 +478,7 @@
                     ];
                 }
             }
-        } else {
-            logout();
-        }
+        } 
     }
     async function call_listpasaranconf() {
         const res = await fetch("/api/companypasaranconf", {
@@ -510,64 +510,51 @@
                 pasaran_bbfs_field = record[i]["bbfs"];
                 pasaran_limitline4d_field = record[i]["limitline_4d"];
                 pasaran_limitline3d_field = record[i]["limitline_3d"];
+                pasaran_limitline3dd_field = record[i]["limitline_3dd"];
                 pasaran_limitline2d_field = record[i]["limitline_2d"];
                 pasaran_limitline2dd_field = record[i]["limitline_2dd"];
                 pasaran_limitline2dt_field = record[i]["limitline_2dt"];
                 pasaran_minbet_432d_field = record[i]["minbet_432d"];
                 pasaran_maxbet4d_432d_field = record[i]["maxbet4d_432d"];
                 pasaran_maxbet3d_432d_field = record[i]["maxbet3d_432d"];
+                pasaran_maxbet3dd_432d_field = record[i]["maxbet3dd_432d"];
                 pasaran_maxbet2d_432d_field = record[i]["maxbet2d_432d"];
                 pasaran_maxbet2dd_432d_field = record[i]["maxbet2dd_432d"];
                 pasaran_maxbet2dt_432d_field = record[i]["maxbet2dt_432d"];
                 pasaran_limitotal4d_432d_field = record[i]["limitotal4d_432d"];
                 pasaran_limitotal3d_432d_field = record[i]["limitotal3d_432d"];
+                pasaran_limitotal3dd_432d_field = record[i]["limitotal3dd_432d"];
                 pasaran_limitotal2d_432d_field = record[i]["limitotal2d_432d"];
-                pasaran_limitotal2dd_432d_field =
-                    record[i]["limitotal2dd_432d"];
-                pasaran_limitotal2dt_432d_field =
-                    record[i]["limitotal2dt_432d"];
-                pasaran_limitglobal4d_432d_field =
-                    record[i]["limitglobal4d_432d"];
-                pasaran_limitglobal3d_432d_field =
-                    record[i]["limitglobal3d_432d"];
-                pasaran_limitglobal2d_432d_field =
-                    record[i]["limitglobal2d_432d"];
-                pasaran_limitglobal2dd_432d_field =
-                    record[i]["limitglobal2dd_432d"];
-                pasaran_limitglobal2dt_432d_field =
-                    record[i]["limitglobal2dt_432d"];
-                pasaran_disc4d_432d_field = Math.ceil(
-                    record[i]["disc4d_432d"] * 100
-                );
-                pasaran_disc3d_432d_field = Math.ceil(
-                    record[i]["disc3d_432d"] * 100
-                );
-                pasaran_disc2d_432d_field = Math.ceil(
-                    record[i]["disc2d_432d"] * 100
-                );
-                pasaran_disc2dd_432d_field = Math.ceil(
-                    record[i]["disc2dd_432d"] * 100
-                );
-                pasaran_disc2dt_432d_field = Math.ceil(
-                    record[i]["disc2dt_432d"] * 100
-                );
+                pasaran_limitotal2dd_432d_field = record[i]["limitotal2dd_432d"];
+                pasaran_limitotal2dt_432d_field = record[i]["limitotal2dt_432d"];
+                pasaran_limitglobal4d_432d_field = record[i]["limitglobal4d_432d"];
+                pasaran_limitglobal3d_432d_field = record[i]["limitglobal3d_432d"];
+                pasaran_limitglobal3dd_432d_field = record[i]["limitglobal3dd_432d"];
+                pasaran_limitglobal2d_432d_field = record[i]["limitglobal2d_432d"];
+                pasaran_limitglobal2dd_432d_field = record[i]["limitglobal2dd_432d"];
+                pasaran_limitglobal2dt_432d_field = record[i]["limitglobal2dt_432d"];
+                pasaran_disc4d_432d_field = Math.ceil(record[i]["disc4d_432d"] * 100);
+                pasaran_disc3d_432d_field = Math.ceil(record[i]["disc3d_432d"] * 100);
+                pasaran_disc3dd_432d_field = Math.ceil(record[i]["disc3dd_432d"] * 100);
+                pasaran_disc2d_432d_field = Math.ceil(record[i]["disc2d_432d"] * 100);
+                pasaran_disc2dd_432d_field = Math.ceil(record[i]["disc2dd_432d"] * 100);
+                pasaran_disc2dt_432d_field = Math.ceil(record[i]["disc2dt_432d"] * 100);
                 pasaran_win4d_432d_field = record[i]["win4d_432d"];
                 pasaran_win3d_432d_field = record[i]["win3d_432d"];
+                pasaran_win3dd_432d_field = record[i]["win3dd_432d"];
                 pasaran_win2d_432d_field = record[i]["win2d_432d"];
                 pasaran_win2dd_432d_field = record[i]["win2dd_432d"];
                 pasaran_win2dt_432d_field = record[i]["win2dt_432d"];
                 pasaran_minbet_cbebas_field = record[i]["minbet_cbebas"];
                 pasaran_maxbet_cbebas_field = record[i]["maxbet_cbebas"];
                 pasaran_limitotal_cbebas_field = record[i]["limittotal_cbebas"];
-                pasaran_limitglobal_cbebas_field =
-                    record[i]["limitglobal_cbebas"];
+                pasaran_limitglobal_cbebas_field = record[i]["limitglobal_cbebas"];
                 pasaran_win_cbebas_field = record[i]["win_cbebas"];
                 pasaran_disc_cbebas_field = record[i]["disc_cbebas"] * 100;
                 pasaran_minbet_cmacau_field = record[i]["minbet_cmacau"];
                 pasaran_maxbet_cmacau_field = record[i]["maxbet_cmacau"];
                 pasaran_limitotal_cmacau_field = record[i]["limitotal_cmacau"];
-                pasaran_limitglobal_cmacau_field =
-                    record[i]["limitglobal_cmacau"];
+                pasaran_limitglobal_cmacau_field = record[i]["limitglobal_cmacau"];
                 pasaran_win2_cmacau_field = record[i]["win2d_cmacau"];
                 pasaran_win3_cmacau_field = record[i]["win3d_cmacau"];
                 pasaran_win4_cmacau_field = record[i]["win4d_cmacau"];
@@ -577,8 +564,7 @@
                 pasaran_win3_cnaga_field = record[i]["win3_cnaga"];
                 pasaran_win4_cnaga_field = record[i]["win4_cnaga"];
                 pasaran_disc_cnaga_field = record[i]["disc_cnaga"] * 100;
-                pasaran_limitglobal_cnaga_field =
-                    record[i]["limitglobal_cnaga"];
+                pasaran_limitglobal_cnaga_field = record[i]["limitglobal_cnaga"];
                 pasaran_limittotal_cnaga_field = record[i]["limittotal_cnaga"];
                 pasaran_minbet_cjitu_field = record[i]["minbet_cjitu"];
                 pasaran_maxbet_cjitu_field = record[i]["maxbet_cjitu"];
@@ -587,13 +573,11 @@
                 pasaran_winkepala_cjitu_field = record[i]["winkepala_cjitu"];
                 pasaran_winekor_cjitu_field = record[i]["winekor_cjitu"];
                 pasaran_desc_cjitu_field = record[i]["desc_cjitu"] * 100;
-                pasaran_limitglobal_cjitu_field =
-                    record[i]["limitglobal_cjitu"];
+                pasaran_limitglobal_cjitu_field = record[i]["limitglobal_cjitu"];
                 pasaran_limittotal_cjitu_field = record[i]["limittotal_cjitu"];
                 pasaran_minbet_5050umum_field = record[i]["minbet_5050umum"];
                 pasaran_maxbet_5050umum_field = record[i]["maxbet_5050umum"];
-                pasaran_keibesar_5050umum_field =
-                    record[i]["keibesar_5050umum"] * 100;
+                pasaran_keibesar_5050umum_field = record[i]["keibesar_5050umum"] * 100;
                 pasaran_keikecil_5050umum_field =
                     record[i]["keikecil_5050umum"] * 100;
                 pasaran_keigenap_5050umum_field =
@@ -1499,6 +1483,10 @@
             flag = true;
             msg += "The Pasaran Limitline 3D is required\n";
         }
+        if (pasaran_limitline3dd_field == "") {
+            flag = true;
+            msg += "The Pasaran Limitline 3DD is required\n";
+        }
         if (pasaran_limitline2d_field == "") {
             flag = true;
             msg += "The Pasaran Limitline 2D is required\n";
@@ -1530,6 +1518,7 @@
                     companypasaran_id: companypasaran_id_field,
                     pasaran_limitline_4d: parseInt(pasaran_limitline4d_field),
                     pasaran_limitline_3d: parseInt(pasaran_limitline3d_field),
+                    pasaran_limitline_3dd: parseInt(pasaran_limitline3dd_field),
                     pasaran_limitline_2d: parseInt(pasaran_limitline2d_field),
                     pasaran_limitline_2dd: parseInt(pasaran_limitline2dd_field),
                     pasaran_limitline_2dt: parseInt(pasaran_limitline2dt_field),
@@ -1569,6 +1558,10 @@
             flag = true;
             msg += "The Max Bet 3D is required\n";
         }
+        if (pasaran_maxbet3dd_432d_field == "") {
+            flag = true;
+            msg += "The Max Bet 3DD is required\n";
+        }
         if (pasaran_maxbet2d_432d_field == "") {
             flag = true;
             msg += "The Max Bet 2D is required\n";
@@ -1588,6 +1581,10 @@
         if (pasaran_limitotal3d_432d_field == "") {
             flag = true;
             msg += "The Limit Total 3D is required\n";
+        }
+        if (pasaran_limitotal3dd_432d_field == "") {
+            flag = true;
+            msg += "The Limit Total 3DD is required\n";
         }
         if (pasaran_limitotal2d_432d_field == "") {
             flag = true;
@@ -1609,6 +1606,10 @@
             flag = true;
             msg += "The Limit Global 3D is required\n";
         }
+        if (pasaran_limitglobal3dd_432d_field == "") {
+            flag = true;
+            msg += "The Limit Global 3DD is required\n";
+        }
         if (pasaran_limitglobal2d_432d_field == "") {
             flag = true;
             msg += "The Limit Global 3D is required\n";
@@ -1629,6 +1630,10 @@
             flag = true;
             msg += "The Win 3D is required\n";
         }
+        if (pasaran_win3dd_432d_field == "") {
+            flag = true;
+            msg += "The Win 3DD is required\n";
+        }
         if (pasaran_win2d_432d_field == "") {
             flag = true;
             msg += "The Win 2D is required\n";
@@ -1648,6 +1653,10 @@
         if (pasaran_disc3d_432d_field == "") {
             flag = true;
             msg += "The Disc 3D is required\n";
+        }
+        if (pasaran_disc3dd_432d_field == "") {
+            flag = true;
+            msg += "The Disc 3DD is required\n";
         }
         if (pasaran_disc2d_432d_field == "") {
             flag = true;
@@ -1675,71 +1684,36 @@
                     pasaran_id: pasaran_id_field,
                     companypasaran_id: companypasaran_id_field,
                     pasaran_minbet_432d: parseInt(pasaran_minbet_432d_field),
-                    pasaran_maxbet4d_432d: parseInt(
-                        pasaran_maxbet4d_432d_field
-                    ),
-                    pasaran_maxbet3d_432d: parseInt(
-                        pasaran_maxbet3d_432d_field
-                    ),
-                    pasaran_maxbet2d_432d: parseInt(
-                        pasaran_maxbet2d_432d_field
-                    ),
-                    pasaran_maxbet2dd_432d: parseInt(
-                        pasaran_maxbet2dd_432d_field
-                    ),
-                    pasaran_maxbet2dt_432d: parseInt(
-                        pasaran_maxbet2dt_432d_field
-                    ),
-                    pasaran_limitotal4d_432d: parseInt(
-                        pasaran_limitotal4d_432d_field
-                    ),
-                    pasaran_limitotal3d_432d: parseInt(
-                        pasaran_limitotal3d_432d_field
-                    ),
-                    pasaran_limitotal2d_432d: parseInt(
-                        pasaran_limitotal2d_432d_field
-                    ),
-                    pasaran_limitotal2dd_432d: parseInt(
-                        pasaran_limitotal2dd_432d_field
-                    ),
-                    pasaran_limitotal2dt_432d: parseInt(
-                        pasaran_limitotal2dt_432d_field
-                    ),
-                    pasaran_limitglobal4d_432d: parseInt(
-                        pasaran_limitglobal4d_432d_field
-                    ),
-                    pasaran_limitglobal3d_432d: parseInt(
-                        pasaran_limitglobal3d_432d_field
-                    ),
-                    pasaran_limitglobal2d_432d: parseInt(
-                        pasaran_limitglobal2d_432d_field
-                    ),
-                    pasaran_limitglobal2dd_432d: parseInt(
-                        pasaran_limitglobal2dd_432d_field
-                    ),
-                    pasaran_limitglobal2dt_432d: parseInt(
-                        pasaran_limitglobal2dt_432d_field
-                    ),
+                    pasaran_maxbet4d_432d: parseInt(pasaran_maxbet4d_432d_field),
+                    pasaran_maxbet3d_432d: parseInt(pasaran_maxbet3d_432d_field),
+                    pasaran_maxbet3dd_432d: parseInt(pasaran_maxbet3dd_432d_field),
+                    pasaran_maxbet2d_432d: parseInt(pasaran_maxbet2d_432d_field),
+                    pasaran_maxbet2dd_432d: parseInt(pasaran_maxbet2dd_432d_field),
+                    pasaran_maxbet2dt_432d: parseInt(pasaran_maxbet2dt_432d_field),
+                    pasaran_limitotal4d_432d: parseInt(pasaran_limitotal4d_432d_field),
+                    pasaran_limitotal3d_432d: parseInt(pasaran_limitotal3d_432d_field),
+                    pasaran_limitotal3dd_432d: parseInt(pasaran_limitotal3dd_432d_field),
+                    pasaran_limitotal2d_432d: parseInt(pasaran_limitotal2d_432d_field),
+                    pasaran_limitotal2dd_432d: parseInt(pasaran_limitotal2dd_432d_field),
+                    pasaran_limitotal2dt_432d: parseInt(pasaran_limitotal2dt_432d_field),
+                    pasaran_limitglobal4d_432d: parseInt(pasaran_limitglobal4d_432d_field),
+                    pasaran_limitglobal3d_432d: parseInt(pasaran_limitglobal3d_432d_field),
+                    pasaran_limitglobal3dd_432d: parseInt(pasaran_limitglobal3dd_432d_field),
+                    pasaran_limitglobal2d_432d: parseInt(pasaran_limitglobal2d_432d_field),
+                    pasaran_limitglobal2dd_432d: parseInt(pasaran_limitglobal2dd_432d_field),
+                    pasaran_limitglobal2dt_432d: parseInt(pasaran_limitglobal2dt_432d_field),
                     pasaran_win4d_432d: parseInt(pasaran_win4d_432d_field),
                     pasaran_win3d_432d: parseInt(pasaran_win3d_432d_field),
+                    pasaran_win3dd_432d: parseInt(pasaran_win3dd_432d_field),
                     pasaran_win2d_432d: parseInt(pasaran_win2d_432d_field),
                     pasaran_win2dd_432d: parseInt(pasaran_win2dd_432d_field),
                     pasaran_win2dt_432d: parseInt(pasaran_win2dt_432d_field),
-                    pasaran_disc4d_432d: parseFloat(
-                        pasaran_disc4d_432d_field / 100
-                    ),
-                    pasaran_disc3d_432d: parseFloat(
-                        pasaran_disc3d_432d_field / 100
-                    ),
-                    pasaran_disc2d_432d: parseFloat(
-                        pasaran_disc2d_432d_field / 100
-                    ),
-                    pasaran_disc2dd_432d: parseFloat(
-                        pasaran_disc2dd_432d_field / 100
-                    ),
-                    pasaran_disc2dt_432d: parseFloat(
-                        pasaran_disc2dt_432d_field / 100
-                    ),
+                    pasaran_disc4d_432d: parseFloat(pasaran_disc4d_432d_field / 100),
+                    pasaran_disc3d_432d: parseFloat(pasaran_disc3d_432d_field / 100),
+                    pasaran_disc3dd_432d: parseFloat(pasaran_disc3dd_432d_field / 100),
+                    pasaran_disc2d_432d: parseFloat(pasaran_disc2d_432d_field / 100),
+                    pasaran_disc2dd_432d: parseFloat(pasaran_disc2dd_432d_field / 100),
+                    pasaran_disc2dt_432d: parseFloat(pasaran_disc2dt_432d_field / 100),
                 }),
             });
             const json = await res.json();
@@ -4798,8 +4772,7 @@
     <Row>
         <Col xs="3">
             <div class="card" style="border-radius: 0px;margin-top:10px;">
-                <div class="card-header" style="">
-                    Company / {sData}
+                <div class="card-header" style="">Company / {sData}
                     <div class="float-end">
                         {#if company_status_field == "ACTIVE"}
                         <button
@@ -5185,8 +5158,7 @@
     modal_id={"modalEditPasaran"}
     modal_size={"modal-fullscreen"}
     modal_body_height={"height:200px;"}
-    modal_footer_flag={false}
->
+    modal_footer_flag={false}>
     <slot:template slot="header">
         <h5 class="modal-title" id="exampleModalLabel">
             Pasaran : {pasaran_nmpasarantogel_field}
@@ -5362,6 +5334,21 @@
                                             pasaran_limitline3d_field
                                         )}</small>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="exampleForm" class="form-label">LimitLine 3DD</label>
+                                    <input
+                                        bind:value={pasaran_limitline3dd_field}
+                                        on:keyup={handleKeyboard_number}
+                                        type="text"
+                                        style="text-align:right;"
+                                        class="form-control required"
+                                        placeholder="Limitline 3DD"
+                                        aria-label="Limitline 3DD"/>
+                                    <small style="float:right;font-size:11px;"
+                                        >{new Intl.NumberFormat().format(
+                                            pasaran_limitline3dd_field
+                                        )}</small>
+                                </div>
                             </Col>
                             <Col xs="1">
                                 <div class="mb-3">
@@ -5484,8 +5471,7 @@
                                     fetch432d();
                                 }}
                                 class="btn btn-warning"
-                                style="border-radius: 0px;"
-                            >
+                                style="border-radius: 0px;">
                                 Fetch
                             </button>
                             <button
@@ -5493,8 +5479,7 @@
                                     saveupdatepasaran432();
                                 }}
                                 class="btn btn-warning"
-                                style="border-radius: 0px;"
-                            >
+                                style="border-radius: 0px;">
                                 Save
                             </button>
                         </div>
@@ -5505,8 +5490,7 @@
                                 <div class="mb-3">
                                     <label
                                         for="exampleFormControlInput1"
-                                        class="form-label">Min Bet</label
-                                    >
+                                        class="form-label">Min Bet</label>
                                     <input
                                         bind:value={pasaran_minbet_432d_field}
                                         on:keyup={handleKeyboard_number}
@@ -5514,19 +5498,16 @@
                                         style="text-align:right;"
                                         class="form-control required"
                                         placeholder="Min Bet"
-                                        aria-label="Min Bet"
-                                    />
+                                        aria-label="Min Bet"/>
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_minbet_432d_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                                 <div class="mb-3">
                                     <label
                                         for="exampleFormControlInput1"
-                                        class="form-label">Max Bet 4D</label
-                                    >
+                                        class="form-label">Max Bet 4D</label>
                                     <input
                                         bind:value={pasaran_maxbet4d_432d_field}
                                         on:keyup={handleKeyboard_number}
@@ -5539,8 +5520,7 @@
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_maxbet4d_432d_field
-                                        )}</small
-                                    >
+                                        )}</small>
                                 </div>
                                 <div class="mb-3">
                                     <label
@@ -5559,6 +5539,26 @@
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_maxbet3d_432d_field
+                                        )}</small
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="exampleFormControlInput1"
+                                        class="form-label">Max Bet 3DD</label
+                                    >
+                                    <input
+                                        bind:value={pasaran_maxbet3dd_432d_field}
+                                        on:keyup={handleKeyboard_number}
+                                        type="text"
+                                        style="text-align:right;"
+                                        class="form-control required"
+                                        placeholder="Max Bet 3DD"
+                                        aria-label="Max Bet 3DD"
+                                    />
+                                    <small style="float:right;font-size:11px;"
+                                        >{new Intl.NumberFormat().format(
+                                            pasaran_maxbet3dd_432d_field
                                         )}</small
                                     >
                                 </div>
@@ -5661,6 +5661,26 @@
                                     <small style="float:right;font-size:11px;"
                                         >{new Intl.NumberFormat().format(
                                             pasaran_limitotal3d_432d_field
+                                        )}</small
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="exampleFormControlInput1"
+                                        class="form-label">Limit Total 3DD</label
+                                    >
+                                    <input
+                                        bind:value={pasaran_limitotal3dd_432d_field}
+                                        on:keyup={handleKeyboard_number}
+                                        type="text"
+                                        style="text-align:right;"
+                                        class="form-control required"
+                                        placeholder="Limit Total 3DD"
+                                        aria-label="Limit Total 3DD"
+                                    />
+                                    <small style="float:right;font-size:11px;"
+                                        >{new Intl.NumberFormat().format(
+                                            pasaran_limitotal3dd_432d_field
                                         )}</small
                                     >
                                 </div>
@@ -5773,6 +5793,25 @@
                                 <div class="mb-3">
                                     <label
                                         for="exampleFormControlInput1"
+                                        class="form-label">Limit Global 3DD</label>
+                                    <input
+                                        bind:value={pasaran_limitglobal3dd_432d_field}
+                                        on:keyup={handleKeyboard_number}
+                                        type="text"
+                                        style="text-align:right;"
+                                        class="form-control required"
+                                        placeholder="Limit Global 3DD"
+                                        aria-label="Limit Global 3DD"
+                                    />
+                                    <small style="float:right;font-size:11px;"
+                                        >{new Intl.NumberFormat().format(
+                                            pasaran_limitglobal3dd_432d_field
+                                        )}</small
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="exampleFormControlInput1"
                                         class="form-label"
                                         >Limit Global 2D</label
                                     >
@@ -5878,6 +5917,26 @@
                                 <div class="mb-3">
                                     <label
                                         for="exampleFormControlInput1"
+                                        class="form-label">Win 3DD(x)</label
+                                    >
+                                    <input
+                                        bind:value={pasaran_win3dd_432d_field}
+                                        on:keyup={handleKeyboard_number}
+                                        type="text"
+                                        style="text-align:right;"
+                                        class="form-control required"
+                                        placeholder="Win 3DD"
+                                        aria-label="Win 3DD"
+                                    />
+                                    <small style="float:right;font-size:11px;"
+                                        >{new Intl.NumberFormat().format(
+                                            pasaran_win3dd_432d_field
+                                        )}</small
+                                    >
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="exampleFormControlInput1"
                                         class="form-label">Win 2D(x)</label
                                     >
                                     <input
@@ -5976,6 +6035,24 @@
                                             pasaran_disc3d_432d_field
                                         )}</small
                                     >
+                                </div>
+                                <div class="mb-3">
+                                    <label
+                                        for="exampleFormControlInput1"
+                                        class="form-label">Disc 3D(%)</label>
+                                    <input
+                                        bind:value={pasaran_disc3dd_432d_field}
+                                        on:keyup={handleKeyboard_number}
+                                        type="text"
+                                        style="text-align:right;"
+                                        class="form-control required"
+                                        placeholder="Disc 3DD"
+                                        aria-label="Disc 3DD"
+                                    />
+                                    <small style="float:right;font-size:11px;"
+                                        >{new Intl.NumberFormat().format(
+                                            pasaran_disc3dd_432d_field
+                                        )}</small>
                                 </div>
                                 <div class="mb-3">
                                     <label

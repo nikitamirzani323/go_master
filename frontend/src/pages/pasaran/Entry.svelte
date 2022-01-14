@@ -26,6 +26,7 @@
 
     let pasaran_limitline4d_field = 0;
     let pasaran_limitline3d_field = 0;
+    let pasaran_limitline3dd_field = 0;
     let pasaran_limitline2d_field = 0;
     let pasaran_limitline2dd_field = 0;
     let pasaran_limitline2dt_field = 0;
@@ -34,26 +35,31 @@
     let pasaran_minbet_432d_field = 0;
     let pasaran_maxbet4d_432d_field = 0;
     let pasaran_maxbet3d_432d_field = 0;
+    let pasaran_maxbet3dd_432d_field = 0;
     let pasaran_maxbet2d_432d_field = 0;
     let pasaran_maxbet2dd_432d_field = 0;
     let pasaran_maxbet2dt_432d_field = 0;
     let pasaran_limitotal4d_432d_field = 0;
     let pasaran_limitotal3d_432d_field = 0;
+    let pasaran_limitotal3dd_432d_field = 0;
     let pasaran_limitotal2d_432d_field = 0;
     let pasaran_limitotal2dd_432d_field = 0;
     let pasaran_limitotal2dt_432d_field = 0;
     let pasaran_limitglobal4d_432d_field = 0;
     let pasaran_limitglobal3d_432d_field = 0;
+    let pasaran_limitglobal3dd_432d_field = 0;
     let pasaran_limitglobal2d_432d_field = 0;
     let pasaran_limitglobal2dd_432d_field = 0;
     let pasaran_limitglobal2dt_432d_field = 0;
     let pasaran_disc4d_432d_field = 0;
     let pasaran_disc3d_432d_field = 0;
+    let pasaran_disc3dd_432d_field = 0;
     let pasaran_disc2d_432d_field = 0;
     let pasaran_disc2dd_432d_field = 0;
     let pasaran_disc2dt_432d_field = 0;
     let pasaran_win4d_432d_field = 0;
     let pasaran_win3d_432d_field = 0;
+    let pasaran_win3dd_432d_field = 0;
     let pasaran_win2d_432d_field = 0;
     let pasaran_win2dd_432d_field = 0;
     let pasaran_win2dt_432d_field = 0;
@@ -235,6 +241,7 @@
                 pasaran_bbfs_field = record[i]["bbfs"];
                 pasaran_limitline4d_field = record[i]["limitline_4d"];
                 pasaran_limitline3d_field = record[i]["limitline_3d"];
+                pasaran_limitline3dd_field = record[i]["limitline_3dd"];
                 pasaran_limitline2d_field = record[i]["limitline_2d"];
                 pasaran_limitline2dd_field = record[i]["limitline_2dd"];
                 pasaran_limitline2dt_field = record[i]["limitline_2dt"];
@@ -242,43 +249,31 @@
                 pasaran_minbet_432d_field = record[i]["minbet_432d"];
                 pasaran_maxbet4d_432d_field = record[i]["maxbet4d_432d"];
                 pasaran_maxbet3d_432d_field = record[i]["maxbet3d_432d"];
+                pasaran_maxbet3dd_432d_field = record[i]["maxbet3dd_432d"];
                 pasaran_maxbet2d_432d_field = record[i]["maxbet2d_432d"];
                 pasaran_maxbet2dd_432d_field = record[i]["maxbet2dd_432d"];
                 pasaran_maxbet2dt_432d_field = record[i]["maxbet2dt_432d"];
                 pasaran_limitotal4d_432d_field = record[i]["limitotal4d_432d"];
                 pasaran_limitotal3d_432d_field = record[i]["limitotal3d_432d"];
+                pasaran_limitotal3dd_432d_field = record[i]["limitotal3dd_432d"];
                 pasaran_limitotal2d_432d_field = record[i]["limitotal2d_432d"];
-                pasaran_limitotal2dd_432d_field =
-                    record[i]["limitotal2dd_432d"];
-                pasaran_limitotal2dt_432d_field =
-                    record[i]["limitotal2dt_432d"];
-                pasaran_limitglobal4d_432d_field =
-                    record[i]["limitglobal4d_432d"];
-                pasaran_limitglobal3d_432d_field =
-                    record[i]["limitglobal3d_432d"];
-                pasaran_limitglobal2d_432d_field =
-                    record[i]["limitglobal2d_432d"];
-                pasaran_limitglobal2dd_432d_field =
-                    record[i]["limitglobal2dd_432d"];
-                pasaran_limitglobal2dt_432d_field =
-                    record[i]["limitglobal2dt_432d"];
-                pasaran_disc4d_432d_field = Math.ceil(
-                    record[i]["disc4d_432d"] * 100
-                );
-                pasaran_disc3d_432d_field = Math.ceil(
-                    record[i]["disc3d_432d"] * 100
-                );
-                pasaran_disc2d_432d_field = Math.ceil(
-                    record[i]["disc2d_432d"] * 100
-                );
-                pasaran_disc2dd_432d_field = Math.ceil(
-                    record[i]["disc2dd_432d"] * 100
-                );
-                pasaran_disc2dt_432d_field = Math.ceil(
-                    record[i]["disc2dt_432d"] * 100
-                );
+                pasaran_limitotal2dd_432d_field = record[i]["limitotal2dd_432d"];
+                pasaran_limitotal2dt_432d_field = record[i]["limitotal2dt_432d"];
+                pasaran_limitglobal4d_432d_field = record[i]["limitglobal4d_432d"];
+                pasaran_limitglobal3d_432d_field = record[i]["limitglobal3d_432d"];
+                pasaran_limitglobal3dd_432d_field = record[i]["limitglobal3dd_432d"];
+                pasaran_limitglobal2d_432d_field = record[i]["limitglobal2d_432d"];
+                pasaran_limitglobal2dd_432d_field = record[i]["limitglobal2dd_432d"];
+                pasaran_limitglobal2dt_432d_field = record[i]["limitglobal2dt_432d"];
+                pasaran_disc4d_432d_field = Math.ceil( record[i]["disc4d_432d"] * 100);
+                pasaran_disc3d_432d_field = Math.ceil(record[i]["disc3d_432d"] * 100);
+                pasaran_disc3dd_432d_field = Math.ceil(record[i]["disc3dd_432d"] * 100);
+                pasaran_disc2d_432d_field = Math.ceil(record[i]["disc2d_432d"] * 100);
+                pasaran_disc2dd_432d_field = Math.ceil(record[i]["disc2dd_432d"] * 100);
+                pasaran_disc2dt_432d_field = Math.ceil(record[i]["disc2dt_432d"] * 100);
                 pasaran_win4d_432d_field = record[i]["win4d_432d"];
                 pasaran_win3d_432d_field = record[i]["win3d_432d"];
+                pasaran_win3dd_432d_field = record[i]["win3dd_432d"];
                 pasaran_win2d_432d_field = record[i]["win2d_432d"];
                 pasaran_win2dd_432d_field = record[i]["win2dd_432d"];
                 pasaran_win2dt_432d_field = record[i]["win2dt_432d"];
@@ -286,8 +281,7 @@
                 pasaran_minbet_cbebas_field = record[i]["minbet_cbebas"];
                 pasaran_maxbet_cbebas_field = record[i]["maxbet_cbebas"];
                 pasaran_limitotal_cbebas_field = record[i]["limittotal_cbebas"];
-                pasaran_limitglobal_cbebas_field =
-                    record[i]["limitglobal_cbebas"];
+                pasaran_limitglobal_cbebas_field = record[i]["limitglobal_cbebas"];
                 pasaran_win_cbebas_field = record[i]["win_cbebas"];
                 pasaran_disc_cbebas_field = record[i]["disc_cbebas"] * 100;
 
@@ -610,6 +604,10 @@
             flag = true;
             msg += "The Limitline 3D is required\n";
         }
+        if (pasaran_limitline3dd_field == "") {
+            flag = true;
+            msg += "The Limitline 3DD is required\n";
+        }
         if (pasaran_limitline2d_field == "") {
             flag = true;
             msg += "The Limitline 2D is required\n";
@@ -635,6 +633,7 @@
                     pasaran_bbfs: parseInt(pasaran_bbfs_field),
                     pasaran_limitline4d: parseInt(pasaran_limitline4d_field),
                     pasaran_limitline3d: parseInt(pasaran_limitline3d_field),
+                    pasaran_limitline3dd: parseInt(pasaran_limitline3dd_field),
                     pasaran_limitline2d: parseInt(pasaran_limitline2d_field),
                     pasaran_limitline2dd: parseInt(pasaran_limitline2dd_field),
                     pasaran_limitline2dt: parseInt(pasaran_limitline2dt_field),
@@ -670,6 +669,10 @@
             flag = true;
             msg += "The Max Bet 3D is required\n";
         }
+        if (pasaran_maxbet3dd_432d_field == "") {
+            flag = true;
+            msg += "The Max Bet 3DD is required\n";
+        }
         if (pasaran_maxbet2d_432d_field == "") {
             flag = true;
             msg += "The Max Bet 2D is required\n";
@@ -689,6 +692,10 @@
         if (pasaran_limitotal3d_432d_field == "") {
             flag = true;
             msg += "The Limit Total 3D is required\n";
+        }
+        if (pasaran_limitotal3dd_432d_field == "") {
+            flag = true;
+            msg += "The Limit Total 3DD is required\n";
         }
         if (pasaran_limitotal2d_432d_field == "") {
             flag = true;
@@ -710,6 +717,10 @@
             flag = true;
             msg += "The Limit Global 3D is required\n";
         }
+        if (pasaran_limitglobal3dd_432d_field == "") {
+            flag = true;
+            msg += "The Limit Global 3DD is required\n";
+        }
         if (pasaran_limitglobal2d_432d_field == "") {
             flag = true;
             msg += "The Limit Global 3D is required\n";
@@ -730,6 +741,10 @@
             flag = true;
             msg += "The Win 3D is required\n";
         }
+        if (pasaran_win3dd_432d_field == "") {
+            flag = true;
+            msg += "The Win 3DD is required\n";
+        }
         if (pasaran_win2d_432d_field == "") {
             flag = true;
             msg += "The Win 2D is required\n";
@@ -749,6 +764,10 @@
         if (pasaran_disc3d_432d_field == "") {
             flag = true;
             msg += "The Disc 3D is required\n";
+        }
+        if (pasaran_disc3dd_432d_field == "") {
+            flag = true;
+            msg += "The Disc 3DD is required\n";
         }
         if (pasaran_disc2d_432d_field == "") {
             flag = true;
@@ -775,26 +794,31 @@
                     pasaran_minbet_432d: parseInt(pasaran_minbet_432d_field),
                     pasaran_maxbet4d_432d: parseInt(pasaran_maxbet4d_432d_field),
                     pasaran_maxbet3d_432d: parseInt(pasaran_maxbet3d_432d_field),
+                    pasaran_maxbet3dd_432d: parseInt(pasaran_maxbet3dd_432d_field),
                     pasaran_maxbet2d_432d: parseInt(pasaran_maxbet2d_432d_field),
                     pasaran_maxbet2dd_432d: parseInt(pasaran_maxbet2dd_432d_field),
                     pasaran_maxbet2dt_432d: parseInt(pasaran_maxbet2dt_432d_field),
                     pasaran_limitotal4d_432d: parseInt(pasaran_limitotal4d_432d_field),
                     pasaran_limitotal3d_432d: parseInt(pasaran_limitotal3d_432d_field),
+                    pasaran_limitotal3dd_432d: parseInt(pasaran_limitotal3dd_432d_field),
                     pasaran_limitotal2d_432d: parseInt(pasaran_limitotal2d_432d_field),
                     pasaran_limitotal2dd_432d: parseInt(pasaran_limitotal2dd_432d_field),
                     pasaran_limitotal2dt_432d: parseInt(pasaran_limitotal2dt_432d_field),
                     pasaran_limitglobal4d_432d: parseInt(pasaran_limitglobal4d_432d_field),
                     pasaran_limitglobal3d_432d: parseInt(pasaran_limitglobal3d_432d_field),
+                    pasaran_limitglobal3dd_432d: parseInt(pasaran_limitglobal3dd_432d_field),
                     pasaran_limitglobal2d_432d: parseInt(pasaran_limitglobal2d_432d_field),
                     pasaran_limitglobal2dd_432d: parseInt(pasaran_limitglobal2dd_432d_field),
                     pasaran_limitglobal2dt_432d: parseInt(pasaran_limitglobal2dt_432d_field),
                     pasaran_win4d_432d: parseInt(pasaran_win4d_432d_field),
                     pasaran_win3d_432d: parseInt(pasaran_win3d_432d_field),
+                    pasaran_win3dd_432d: parseInt(pasaran_win3dd_432d_field),
                     pasaran_win2d_432d: parseInt(pasaran_win2d_432d_field),
                     pasaran_win2dd_432d: parseInt(pasaran_win2dd_432d_field),
                     pasaran_win2dt_432d: parseInt(pasaran_win2dt_432d_field),
                     pasaran_disc4d_432d: parseFloat(pasaran_disc4d_432d_field / 100),
                     pasaran_disc3d_432d: parseFloat(pasaran_disc3d_432d_field / 100),
+                    pasaran_disc3dd_432d: parseFloat(pasaran_disc3dd_432d_field / 100),
                     pasaran_disc2d_432d: parseFloat(pasaran_disc2d_432d_field / 100),
                     pasaran_disc2dd_432d: parseFloat(pasaran_disc2dd_432d_field / 100),
                     pasaran_disc2dt_432d: parseFloat(pasaran_disc2dt_432d_field / 100),
@@ -2097,6 +2121,12 @@
             numbera = parseInt(pasaran_limitline3d_field[i]);
             if (isNaN(numbera)) {
                 pasaran_limitline3d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitline3dd_field.length; i++) {
+            numbera = parseInt(pasaran_limitline3dd_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitline3dd_field = "";
             }
         }
         for (let i = 0; i < pasaran_limitline2d_field.length; i++) {
@@ -3537,10 +3567,7 @@
                     BackHalaman();
                 }}
                 class="btn btn-dark btn-sm"
-                style="border-radius: 0px;"
-            >
-                Back
-            </button>
+                style="border-radius: 0px;">Back</button>
         </Col>
     </Row>
     <div class="clearfix" />
@@ -3555,19 +3582,14 @@
                                 saveEntry();
                             }}
                             class="btn btn-warning btn-sm"
-                            style="border-radius: 0px;"
-                        >
-                            Save
-                        </button>
+                            style="border-radius: 0px;">Save</button>
                     </div>
                 </div>
                 <div class="card-body" style="height:450px;">
                     <Row>
                         <Col xs="6">
                             <div class="mb-3">
-                                <label for="exampleform" class="form-label"
-                                    >ID</label
-                                >
+                                <label for="exampleform" class="form-label">ID</label>
                                 <input
                                     bind:value={idpasarantogel}
                                     type="text"
@@ -3575,8 +3597,7 @@
                                     maxlength="10"
                                     class="form-control"
                                     placeholder="ID Pasaran Togel"
-                                    aria-label="ID Pasaran Togel"
-                                />
+                                    aria-label="ID Pasaran Togel"/>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleform" class="form-label"
@@ -3711,8 +3732,7 @@
                                 SaveLimitline();
                             }}
                             class="btn btn-warning btn-sm"
-                            style="border-radius: 0px;"
-                        >
+                            style="border-radius: 0px;">
                             Save
                         </button>
                     </div>
@@ -3721,29 +3741,23 @@
                     <Row>
                         <Col xs="4">
                             <div class="mb-3">
-                                <label for="exampleForm" class="form-label"
-                                    >BBFS</label
-                                >
+                                <label for="exampleForm" class="form-label">BBFS</label>
                                 <input
                                     bind:value={pasaran_bbfs_field}
                                     type="text"
                                     style="text-align:right;"
                                     class="form-control required"
                                     placeholder="BBFS"
-                                    aria-label="BBFS"
-                                />
+                                    aria-label="BBFS"/>
                                 <small style="float:right;font-size:11px;"
                                     >{new Intl.NumberFormat().format(
                                         pasaran_bbfs_field
-                                    )}</small
-                                >
+                                    )}</small>
                             </div>
                         </Col>
                         <Col xs="4">
                             <div class="mb-3">
-                                <label for="exampleForm" class="form-label"
-                                    >LimitLine 4D</label
-                                >
+                                <label for="exampleForm" class="form-label">LimitLine 4D</label>
                                 <input
                                     bind:value={pasaran_limitline4d_field}
                                     on:keyup={handleKeyboard_number}
@@ -3751,18 +3765,14 @@
                                     style="text-align:right;"
                                     class="form-control required"
                                     placeholder="Limitline 4D"
-                                    aria-label="Limitline 4D"
-                                />
+                                    aria-label="Limitline 4D"/>
                                 <small style="float:right;font-size:11px;"
                                     >{new Intl.NumberFormat().format(
                                         pasaran_limitline4d_field
-                                    )}</small
-                                >
+                                    )}</small>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleForm" class="form-label"
-                                    >LimitLine 3D</label
-                                >
+                                <label for="exampleForm" class="form-label">LimitLine 3D</label>
                                 <input
                                     bind:value={pasaran_limitline3d_field}
                                     on:keyup={handleKeyboard_number}
@@ -3775,6 +3785,23 @@
                                 <small style="float:right;font-size:11px;"
                                     >{new Intl.NumberFormat().format(
                                         pasaran_limitline3d_field
+                                    )}</small
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleForm" class="form-label">LimitLine 3DD</label>
+                                <input
+                                    bind:value={pasaran_limitline3dd_field}
+                                    on:keyup={handleKeyboard_number}
+                                    type="text"
+                                    style="text-align:right;"
+                                    class="form-control required"
+                                    placeholder="Limitline 3DD"
+                                    aria-label="Limitline 3DD"
+                                />
+                                <small style="float:right;font-size:11px;"
+                                    >{new Intl.NumberFormat().format(
+                                        pasaran_limitline3dd_field
                                     )}</small
                                 >
                             </div>
@@ -3858,8 +3885,7 @@
                                         save432d();
                                     }}
                                     class="btn btn-warning btn-sm"
-                                    style="border-radius: 0px;"
-                                >
+                                    style="border-radius: 0px;">
                                     Save
                                 </button>
                             </div>
@@ -3870,8 +3896,7 @@
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Min Bet</label
-                                        >
+                                            class="form-label">Min Bet</label>
                                         <input
                                             bind:value={pasaran_minbet_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -3879,20 +3904,17 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Min Bet"
-                                            aria-label="Min Bet"
-                                        />
+                                            aria-label="Min Bet"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_minbet_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Max Bet 4D</label
-                                        >
+                                            class="form-label">Max Bet 4D</label>
                                         <input
                                             bind:value={pasaran_maxbet4d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -3900,20 +3922,17 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Max Bet 4D"
-                                            aria-label="Max Bet 4D"
-                                        />
+                                            aria-label="Max Bet 4D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_maxbet4d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Max Bet 3D</label
-                                        >
+                                            class="form-label">Max Bet 3D</label>
                                         <input
                                             bind:value={pasaran_maxbet3d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -3921,14 +3940,30 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Max Bet 3D"
-                                            aria-label="Max Bet 3D"
-                                        />
+                                            aria-label="Max Bet 3D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_maxbet3d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Max Bet 3DD</label>
+                                        <input
+                                            bind:value={pasaran_maxbet3dd_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Max Bet 3DD"
+                                            aria-label="Max Bet 3DD"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_maxbet3dd_432d_field
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
@@ -4000,9 +4035,7 @@
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label"
-                                            >Limit Total 4D</label
-                                        >
+                                            class="form-label">Limit Total 4D</label>
                                         <input
                                             bind:value={pasaran_limitotal4d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4010,21 +4043,17 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Limit Total 4D"
-                                            aria-label="Limit Total 4D"
-                                        />
+                                            aria-label="Limit Total 4D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_limitotal4d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label"
-                                            >Limit Total 3D</label
-                                        >
+                                            class="form-label">Limit Total 3D</label>
                                         <input
                                             bind:value={pasaran_limitotal3d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4032,21 +4061,35 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Limit Total 3D"
-                                            aria-label="Limit Total 3D"
-                                        />
+                                            aria-label="Limit Total 3D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_limitotal3d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label"
-                                            >Limit Total 2D</label
-                                        >
+                                            class="form-label">Limit Total 3DD</label>
+                                        <input
+                                            bind:value={pasaran_limitotal3dd_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Limit Total 3DD"
+                                            aria-label="Limit Total 3DD"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_limitotal3dd_432d_field
+                                            )}</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Limit Total 2D</label>
                                         <input
                                             bind:value={pasaran_limitotal2d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4054,14 +4097,12 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Limit Total 2D"
-                                            aria-label="Limit Total 2D"
-                                        />
+                                            aria-label="Limit Total 2D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_limitotal2d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
@@ -4112,9 +4153,7 @@
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label"
-                                            >Limit Global 4D</label
-                                        >
+                                            class="form-label">Limit Global 4D</label>
                                         <input
                                             bind:value={pasaran_limitglobal4d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4122,21 +4161,17 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Limit Global 4D"
-                                            aria-label="Limit Global 4D"
-                                        />
+                                            aria-label="Limit Global 4D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_limitglobal4d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label"
-                                            >Limit Global 3D</label
-                                        >
+                                            class="form-label">Limit Global 3D</label>
                                         <input
                                             bind:value={pasaran_limitglobal3d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4144,14 +4179,30 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Limit Global 3D"
-                                            aria-label="Limit Global 3D"
-                                        />
+                                            aria-label="Limit Global 3D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_limitglobal3d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Limit Global 3DD</label>
+                                        <input
+                                            bind:value={pasaran_limitglobal3dd_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Limit Global 3DD"
+                                            aria-label="Limit Global 3DD"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_limitglobal3dd_432d_field
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
@@ -4224,8 +4275,7 @@
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Win 4D(x)</label
-                                        >
+                                            class="form-label">Win 4D(x)</label>
                                         <input
                                             bind:value={pasaran_win4d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4233,20 +4283,17 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Win 4D"
-                                            aria-label="Win 4D"
-                                        />
+                                            aria-label="Win 4D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_win4d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Win 3D(x)</label
-                                        >
+                                            class="form-label">Win 3D(x)</label>
                                         <input
                                             bind:value={pasaran_win3d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4254,14 +4301,31 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Win 3D"
-                                            aria-label="Win 3D"
-                                        />
+                                            aria-label="Win 3D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_win3d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 3DD(x)</label>
+                                        <input
+                                            bind:value={pasaran_win3dd_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 3DD"
+                                            aria-label="Win 3DD"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win3dd_432d_field
+                                            )}
+                                        </small >
                                     </div>
                                     <div class="mb-3">
                                         <label
@@ -4331,8 +4395,7 @@
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Disc 4D(%)</label
-                                        >
+                                            class="form-label">Disc 4D(%)</label>
                                         <input
                                             bind:value={pasaran_disc4d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4340,20 +4403,17 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Disc 4D"
-                                            aria-label="Disc 4D"
-                                        />
+                                            aria-label="Disc 4D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_disc4d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Disc 3D(%)</label
-                                        >
+                                            class="form-label">Disc 3D(%)</label>
                                         <input
                                             bind:value={pasaran_disc3d_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4361,20 +4421,36 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Disc 3D"
-                                            aria-label="Disc 3D"
-                                        />
+                                            aria-label="Disc 3D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_disc3d_432d_field
-                                            )}</small
-                                        >
+                                            )}</small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label">Disc 2D(%)</label
-                                        >
+                                            class="form-label">Disc 3DD(%)</label>
+                                        <input
+                                            bind:value={pasaran_disc3dd_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Disc 3DD"
+                                            aria-label="Disc 3DD"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_disc3dd_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Disc 2D(%)</label>
                                         <input
                                             bind:value={pasaran_disc2d_432d_field}
                                             on:keyup={handleKeyboard_number}
