@@ -63,6 +63,12 @@
     let pasaran_win2d_432d_field = 0;
     let pasaran_win2dd_432d_field = 0;
     let pasaran_win2dt_432d_field = 0;
+    let pasaran_win4d_nodisc_432d_field = 0;
+    let pasaran_win3d_nodisc_432d_field = 0;
+    let pasaran_win3dd_nodisc_432d_field = 0;
+    let pasaran_win2d_nodisc_432d_field = 0;
+    let pasaran_win2dd_nodisc_432d_field = 0;
+    let pasaran_win2dt_nodisc_432d_field = 0;
 
     let pasaran_minbet_cbebas_field = 0;
     let pasaran_maxbet_cbebas_field = 0;
@@ -277,6 +283,12 @@
                 pasaran_win2d_432d_field = record[i]["win2d_432d"];
                 pasaran_win2dd_432d_field = record[i]["win2dd_432d"];
                 pasaran_win2dt_432d_field = record[i]["win2dt_432d"];
+                pasaran_win4d_nodisc_432d_field = record[i]["win4dnodisc_432d"];
+                pasaran_win3d_nodisc_432d_field = record[i]["win3dnodisc_432d"];
+                pasaran_win3dd_nodisc_432d_field = record[i]["win3ddnodisc_432d"];
+                pasaran_win2d_nodisc_432d_field = record[i]["win2dnodisc_432d"];
+                pasaran_win2dd_nodisc_432d_field = record[i]["win2ddnodisc_432d"];
+                pasaran_win2dt_nodisc_432d_field = record[i]["win2dtnodisc_432d"];
 
                 pasaran_minbet_cbebas_field = record[i]["minbet_cbebas"];
                 pasaran_maxbet_cbebas_field = record[i]["maxbet_cbebas"];
@@ -288,8 +300,7 @@
                 pasaran_minbet_cmacau_field = record[i]["minbet_cmacau"];
                 pasaran_maxbet_cmacau_field = record[i]["maxbet_cmacau"];
                 pasaran_limitotal_cmacau_field = record[i]["limitotal_cmacau"];
-                pasaran_limitglobal_cmacau_field =
-                    record[i]["limitglobal_cmacau"];
+                pasaran_limitglobal_cmacau_field = record[i]["limitglobal_cmacau"];
                 pasaran_win2_cmacau_field = record[i]["win2d_cmacau"];
                 pasaran_win3_cmacau_field = record[i]["win3d_cmacau"];
                 pasaran_win4_cmacau_field = record[i]["win4d_cmacau"];
@@ -300,8 +311,7 @@
                 pasaran_win3_cnaga_field = record[i]["win3_cnaga"];
                 pasaran_win4_cnaga_field = record[i]["win4_cnaga"];
                 pasaran_disc_cnaga_field = record[i]["disc_cnaga"] * 100;
-                pasaran_limitglobal_cnaga_field =
-                    record[i]["limitglobal_cnaga"];
+                pasaran_limitglobal_cnaga_field = record[i]["limitglobal_cnaga"];
                 pasaran_limittotal_cnaga_field = record[i]["limittotal_cnaga"];
 
                 pasaran_minbet_cjitu_field = record[i]["minbet_cjitu"];
@@ -311,40 +321,25 @@
                 pasaran_winkepala_cjitu_field = record[i]["winkepala_cjitu"];
                 pasaran_winekor_cjitu_field = record[i]["winekor_cjitu"];
                 pasaran_desc_cjitu_field = record[i]["desc_cjitu"] * 100;
-                pasaran_limitglobal_cjitu_field =
-                    record[i]["limitglobal_cjitu"];
+                pasaran_limitglobal_cjitu_field = record[i]["limitglobal_cjitu"];
                 pasaran_limittotal_cjitu_field = record[i]["limittotal_cjitu"];
 
                 pasaran_minbet_5050umum_field = record[i]["minbet_5050umum"];
                 pasaran_maxbet_5050umum_field = record[i]["maxbet_5050umum"];
-                pasaran_keibesar_5050umum_field =
-                    record[i]["keibesar_5050umum"] * 100;
-                pasaran_keikecil_5050umum_field =
-                    record[i]["keikecil_5050umum"] * 100;
-                pasaran_keigenap_5050umum_field =
-                    record[i]["keigenap_5050umum"] * 100;
-                pasaran_keiganjil_5050umum_field =
-                    record[i]["keiganjil_5050umum"] * 100;
-                pasaran_keitengah_5050umum_field =
-                    record[i]["keitengah_5050umum"] * 100;
-                pasaran_keitepi_5050umum_field =
-                    record[i]["keitepi_5050umum"] * 100;
-                pasaran_discbesar_5050umum_field =
-                    record[i]["discbesar_5050umum"] * 100;
-                pasaran_disckecil_5050umum_field =
-                    record[i]["disckecil_5050umum"] * 100;
-                pasaran_discgenap_5050umum_field =
-                    record[i]["discgenap_5050umum"] * 100;
-                pasaran_discganjil_5050umum_field =
-                    record[i]["discganjil_5050umum"] * 100;
-                pasaran_disctengah_5050umum_field =
-                    record[i]["disctengah_5050umum"] * 100;
-                pasaran_disctepi_5050umum_field =
-                    record[i]["disctepi_5050umum"] * 100;
-                pasaran_limitglobal_5050umum_field =
-                    record[i]["limitglobal_5050umum"];
-                pasaran_limittotal_5050umum_field =
-                    record[i]["limittotal_5050umum"];
+                pasaran_keibesar_5050umum_field = record[i]["keibesar_5050umum"] * 100;
+                pasaran_keikecil_5050umum_field = record[i]["keikecil_5050umum"] * 100;
+                pasaran_keigenap_5050umum_field = record[i]["keigenap_5050umum"] * 100;
+                pasaran_keiganjil_5050umum_field = record[i]["keiganjil_5050umum"] * 100;
+                pasaran_keitengah_5050umum_field = record[i]["keitengah_5050umum"] * 100;
+                pasaran_keitepi_5050umum_field = record[i]["keitepi_5050umum"] * 100;
+                pasaran_discbesar_5050umum_field = record[i]["discbesar_5050umum"] * 100;
+                pasaran_disckecil_5050umum_field = record[i]["disckecil_5050umum"] * 100;
+                pasaran_discgenap_5050umum_field = record[i]["discgenap_5050umum"] * 100;
+                pasaran_discganjil_5050umum_field = record[i]["discganjil_5050umum"] * 100;
+                pasaran_disctengah_5050umum_field = record[i]["disctengah_5050umum"] * 100;
+                pasaran_disctepi_5050umum_field = record[i]["disctepi_5050umum"] * 100;
+                pasaran_limitglobal_5050umum_field = record[i]["limitglobal_5050umum"];
+                pasaran_limittotal_5050umum_field = record[i]["limittotal_5050umum"];
 
                 pasaran_minbet_5050special_field =
                     record[i]["minbet_5050special"];
@@ -757,6 +752,30 @@
             flag = true;
             msg += "The Win 2DT is required\n";
         }
+        if (pasaran_win4d_nodisc_432d_field == "") {
+            flag = true;
+            msg += "The Win 4D is required\n";
+        }
+        if (pasaran_win3d_nodisc_432d_field == "") {
+            flag = true;
+            msg += "The Win 3D is required\n";
+        }
+        if (pasaran_win3dd_nodisc_432d_field == "") {
+            flag = true;
+            msg += "The Win 3DD is required\n";
+        }
+        if (pasaran_win2d_nodisc_432d_field == "") {
+            flag = true;
+            msg += "The Win 2D is required\n";
+        }
+        if (pasaran_win2dd_nodisc_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DD is required\n";
+        }
+        if (pasaran_win2dt_nodisc_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DT is required\n";
+        }
         if (pasaran_disc4d_432d_field == "") {
             flag = true;
             msg += "The Disc 4D is required\n";
@@ -816,6 +835,12 @@
                     pasaran_win2d_432d: parseInt(pasaran_win2d_432d_field),
                     pasaran_win2dd_432d: parseInt(pasaran_win2dd_432d_field),
                     pasaran_win2dt_432d: parseInt(pasaran_win2dt_432d_field),
+                    pasaran_win4dnodisc_432d: parseInt(pasaran_win4d_nodisc_432d_field),
+                    pasaran_win3dnodisc_432d: parseInt(pasaran_win3d_nodisc_432d_field),
+                    pasaran_win3ddnodisc_432d: parseInt(pasaran_win3dd_nodisc_432d_field),
+                    pasaran_win2dnodisc_432d: parseInt(pasaran_win2d_nodisc_432d_field),
+                    pasaran_win2ddnodisc_432d: parseInt(pasaran_win2dd_nodisc_432d_field),
+                    pasaran_win2dtnodisc_432d: parseInt(pasaran_win2dt_nodisc_432d_field),
                     pasaran_disc4d_432d: parseFloat(pasaran_disc4d_432d_field / 100),
                     pasaran_disc3d_432d: parseFloat(pasaran_disc3d_432d_field / 100),
                     pasaran_disc3dd_432d: parseFloat(pasaran_disc3dd_432d_field / 100),
@@ -2105,6 +2130,240 @@
     };
     const handleKeyboard_number = (e) => {
         let numbera;
+        for (let i = 0; i < pasaran_minbet_432d_field.length; i++) {
+            numbera = parseInt(pasaran_minbet_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_minbet_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_maxbet4d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_maxbet4d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_maxbet4d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_maxbet3d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_maxbet3d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_maxbet3d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_maxbet3dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_maxbet3dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_maxbet3dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_maxbet2d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_maxbet2d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_maxbet2d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_maxbet2dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_maxbet2dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_maxbet2dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_maxbet2dt_432d_field.length; i++) {
+            numbera = parseInt(pasaran_maxbet2dt_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_maxbet2dt_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitotal4d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitotal4d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitotal4d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitotal3d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitotal3d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitotal3d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitotal3dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitotal3dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitotal3dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitotal2d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitotal2d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitotal2d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitotal2dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitotal2dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitotal2dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitotal2dt_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitotal2dt_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitotal2dt_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitglobal4d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitglobal4d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitglobal4d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitglobal3d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitglobal3d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitglobal3d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitglobal3dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitglobal3dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitglobal3dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitglobal2d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitglobal2d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitglobal2d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitglobal2dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitglobal2dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitglobal2dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_limitglobal2dt_432d_field.length; i++) {
+            numbera = parseInt(pasaran_limitglobal2dt_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitglobal2dt_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win4d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win4d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win4d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2d_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2d_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dd_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dt_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dt_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dt_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win4d_nodisc_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win4d_nodisc_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win4d_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3d_nodisc_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3d_nodisc_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3d_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3dd_nodisc_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3dd_nodisc_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3dd_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2d_nodisc_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2d_nodisc_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2d_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dd_nodisc_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dd_nodisc_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dd_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dt_nodisc_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dt_nodisc_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dt_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_disc4d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_disc4d_432d_field[i]);
+            if (isNaN(numbera)) {
+                if (pasaran_disc4d_432d_field[i] != ".") {
+                    pasaran_disc4d_432d_field = 0;
+                }
+            }
+        }
+        for (let i = 0; i < pasaran_disc3d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_disc3d_432d_field[i]);
+            if (isNaN(numbera)) {
+                if (pasaran_disc3d_432d_field[i] != ".") {
+                    pasaran_disc3d_432d_field = 0;
+                }
+            }
+        }
+        for (let i = 0; i < pasaran_disc3dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_disc3dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                if (pasaran_disc3dd_432d_field[i] != ".") {
+                    pasaran_disc3dd_432d_field = 0;
+                }
+            }
+        }
+        for (let i = 0; i < pasaran_disc2d_432d_field.length; i++) {
+            numbera = parseInt(pasaran_disc2d_432d_field[i]);
+            if (isNaN(numbera)) {
+                if (pasaran_disc2d_432d_field[i] != ".") {
+                    pasaran_disc2d_432d_field = 0;
+                }
+            }
+        }
+        for (let i = 0; i < pasaran_disc2dd_432d_field.length; i++) {
+            numbera = parseInt(pasaran_disc2dd_432d_field[i]);
+            if (isNaN(numbera)) {
+                if (pasaran_disc2dd_432d_field[i] != ".") {
+                    pasaran_disc2dd_432d_field = 0;
+                }
+            }
+        }
+        for (let i = 0; i < pasaran_disc2dt_432d_field.length; i++) {
+            numbera = parseInt(pasaran_disc2dt_432d_field[i]);
+            if (isNaN(numbera)) {
+                if (pasaran_disc2dt_432d_field[i] != ".") {
+                    pasaran_disc2dt_432d_field = 0;
+                }
+            }
+        }
         for (let i = 0; i < pasaran_bbfs_field.length; i++) {
             numbera = parseInt(pasaran_bbfs_field[i]);
             if (isNaN(numbera)) {
@@ -2569,11 +2828,7 @@
                 }
             }
         }
-        for (
-            let i = 0;
-            i < pasaran_keikopganjil_5050special_field.length;
-            i++
-        ) {
+        for (let i = 0;i < pasaran_keikopganjil_5050special_field.length;i++) {
             numbera = parseInt(pasaran_keikopganjil_5050special_field[i]);
             if (isNaN(numbera)) {
                 if (
@@ -2617,11 +2872,7 @@
                 }
             }
         }
-        for (
-            let i = 0;
-            i < pasaran_keikepalaganjil_5050special_field.length;
-            i++
-        ) {
+        for (let i = 0;i < pasaran_keikepalaganjil_5050special_field.length;i++) {
             numbera = parseInt(pasaran_keikepalaganjil_5050special_field[i]);
             if (isNaN(numbera)) {
                 if (
@@ -3559,20 +3810,20 @@
 <div id="loader" style="margin-left:50%;{css_loader}">
     {msgloader}
 </div>
-<Container fluid style="margin-top: 70px;">
-    <Row>
-        <Col>
+<div class="container-fluid" style="margin-top: 70px;">
+    <div class="row">
+        <div class="col-sm-12">
             <button
                 on:click={() => {
                     BackHalaman();
                 }}
                 class="btn btn-dark btn-sm"
                 style="border-radius: 0px;">Back</button>
-        </Col>
-    </Row>
+        </div>
+    </div>
     <div class="clearfix" />
-    <Row>
-        <Col xs="4">
+    <div class="row">
+        <div class="col-sm-4">
             <div class="card" style="border-radius: 0px;margin-top:10px;">
                 <div class="card-header" style="">
                     Pasaran / {sData}
@@ -3721,8 +3972,8 @@
                     </Row>
                 </div>
             </div>
-        </Col>
-        <Col xs="4">
+        </div>
+        <div class="col-sm-4">
             <Panel height_body="450px" card_footer="false" css_body="">
                 <slot:template slot="cheader">
                     Setting Limit Line + BBFS
@@ -3869,11 +4120,11 @@
                     </Row>
                 </slot:template>
             </Panel>
-        </Col>
-    </Row>
+        </div>
+    </div>
     <div class="clearfix" />
     <br />
-    <Row>
+    <div class="row">
         <Col>
             <TabContent pills>
                 <TabPane tabId="4-3-2" tab="4D/3D/2D" active>
@@ -4389,6 +4640,120 @@
                                                 pasaran_win2dt_432d_field
                                             )}</small
                                         >
+                                    </div>
+                                </Col>
+                                <Col xs="2">
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 4D NO DISKON(x)</label>
+                                        <input
+                                            bind:value={pasaran_win4d_nodisc_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 4D NO DISKON"
+                                            aria-label="Win 4D NO DISKON"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win4d_nodisc_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 3D NO DISKON(x)</label>
+                                        <input
+                                            bind:value={pasaran_win3d_nodisc_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 3D NO DISKON"
+                                            aria-label="Win 3D NO DISKON"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_win3d_nodisc_432d_field
+                                            )}</small >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 3DD NO DISKON(x)</label>
+                                        <input
+                                            bind:value={pasaran_win3dd_nodisc_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 3DD NO DISKON"
+                                            aria-label="Win 3DD NO DISKON"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win3dd_nodisc_432d_field
+                                            )}
+                                        </small >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2D NO DISKON(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2d_nodisc_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2D NO DISKON"
+                                            aria-label="Win 2D NO DISKON"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_win2d_nodisc_432d_field
+                                            )}</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2DD NO DISKON(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2dd_nodisc_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2DD NO DISKON"
+                                            aria-label="Win 2DD NO DISKON"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win2dd_nodisc_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2DT NO DISKON(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2dt_nodisc_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2DT NO DISKON"
+                                            aria-label="Win 2DT NO DISKON"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win2dt_nodisc_432d_field
+                                            )}
+                                        </small>
                                     </div>
                                 </Col>
                                 <Col xs="2">
@@ -7906,5 +8271,5 @@
                 </TabPane>
             </TabContent>
         </Col>
-    </Row>
-</Container>
+    </div>
+</div>

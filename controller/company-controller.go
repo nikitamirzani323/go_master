@@ -1344,6 +1344,12 @@ func Companyupdatepasaran432(c *fiber.Ctx) error {
 		Pasaran_win2d_432d          int     `json:"pasaran_win2d_432d" `
 		Pasaran_win2dd_432d         int     `json:"pasaran_win2dd_432d" `
 		Pasaran_win2dt_432d         int     `json:"pasaran_win2dt_432d" `
+		Pasaran_win4dnodisc_432d    int     `json:"pasaran_win4dnodisc_432d" `
+		Pasaran_win3dnodisc_432d    int     `json:"pasaran_win3dnodisc_432d" `
+		Pasaran_win3ddnodisc_432d   int     `json:"pasaran_win3ddnodisc_432d" `
+		Pasaran_win2dnodisc_432d    int     `json:"pasaran_win2dnodisc_432d" `
+		Pasaran_win2ddnodisc_432d   int     `json:"pasaran_win2ddnodisc_432d" `
+		Pasaran_win2dtnodisc_432d   int     `json:"pasaran_win2dtnodisc_432d" `
 		Pasaran_disc4d_432d         float32 `json:"pasaran_disc4d_432d" `
 		Pasaran_disc3d_432d         float32 `json:"pasaran_disc3d_432d" `
 		Pasaran_disc3dd_432d        float32 `json:"pasaran_disc3dd_432d" `
@@ -1403,6 +1409,12 @@ func Companyupdatepasaran432(c *fiber.Ctx) error {
 			"pasaran_win2d_432d":          client.Pasaran_win2d_432d,
 			"pasaran_win2dd_432d":         client.Pasaran_win2dd_432d,
 			"pasaran_win2dt_432d":         client.Pasaran_win2dt_432d,
+			"pasaran_win4dnodisc_432d":    client.Pasaran_win4dnodisc_432d,
+			"pasaran_win3dnodisc_432d":    client.Pasaran_win3dnodisc_432d,
+			"pasaran_win3ddnodisc_432d":   client.Pasaran_win3ddnodisc_432d,
+			"pasaran_win2dnodisc_432d":    client.Pasaran_win2dnodisc_432d,
+			"pasaran_win2ddnodisc_432d":   client.Pasaran_win2ddnodisc_432d,
+			"pasaran_win2dtnodisc_432d":   client.Pasaran_win2dtnodisc_432d,
 			"pasaran_disc4d_432d":         client.Pasaran_disc4d_432d,
 			"pasaran_disc3d_432d":         client.Pasaran_disc3d_432d,
 			"pasaran_disc3dd_432d":        client.Pasaran_disc3dd_432d,
