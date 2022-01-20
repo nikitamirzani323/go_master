@@ -2159,16 +2159,10 @@
                     idrecord: idpasarantogel,
                     pasaran_minbet_shio: parseInt(pasaran_minbet_shio_field),
                     pasaran_maxbet_shio: parseInt(pasaran_maxbet_shio_field),
-                    pasaran_limittotal_shio: parseInt(
-                        pasaran_limittotal_shio_field
-                    ),
-                    pasaran_limitglobal_shio: parseInt(
-                        pasaran_limitglobal_shio_field
-                    ),
+                    pasaran_limittotal_shio: parseInt(pasaran_limittotal_shio_field),
+                    pasaran_limitglobal_shio: parseInt(pasaran_limitglobal_shio_field),
                     pasaran_shioyear_shio: pasaran_shioyear_shio_field,
-                    pasaran_disc_shio: parseFloat(
-                        (pasaran_disc_shio_field / 100).toPrecision(3)
-                    ),
+                    pasaran_disc_shio: parseFloat((pasaran_disc_shio_field / 100).toPrecision(3)),
                     pasaran_win_shio: parseFloat(pasaran_win_shio_field),
                 }),
             });
@@ -2398,6 +2392,42 @@
             numbera = parseInt(pasaran_win2dt_nodisc_432d_field[i]);
             if (isNaN(numbera)) {
                 pasaran_win2dt_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win4d_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win4d_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win4d_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3d_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3d_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3d_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3dd_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3dd_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3dd_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2d_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2d_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2d_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dd_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dd_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dd_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dt_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dt_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dt_bb_kena_432d_field = "";
             }
         }
         for (let i = 0; i < pasaran_win4d_bb_432d_field.length; i++) {
