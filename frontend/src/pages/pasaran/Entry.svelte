@@ -69,6 +69,18 @@
     let pasaran_win2d_nodisc_432d_field = 0;
     let pasaran_win2dd_nodisc_432d_field = 0;
     let pasaran_win2dt_nodisc_432d_field = 0;
+    let pasaran_win4d_bb_kena_432d_field = 0;
+    let pasaran_win3d_bb_kena_432d_field = 0;
+    let pasaran_win3dd_bb_kena_432d_field = 0;
+    let pasaran_win2d_bb_kena_432d_field = 0;
+    let pasaran_win2dd_bb_kena_432d_field = 0;
+    let pasaran_win2dt_bb_kena_432d_field = 0;
+    let pasaran_win4d_bb_432d_field = 0;
+    let pasaran_win3d_bb_432d_field = 0;
+    let pasaran_win3dd_bb_432d_field = 0;
+    let pasaran_win2d_bb_432d_field = 0;
+    let pasaran_win2dd_bb_432d_field = 0;
+    let pasaran_win2dt_bb_432d_field = 0;
 
     let pasaran_minbet_cbebas_field = 0;
     let pasaran_maxbet_cbebas_field = 0;
@@ -289,6 +301,18 @@
                 pasaran_win2d_nodisc_432d_field = record[i]["win2dnodisc_432d"];
                 pasaran_win2dd_nodisc_432d_field = record[i]["win2ddnodisc_432d"];
                 pasaran_win2dt_nodisc_432d_field = record[i]["win2dtnodisc_432d"];
+                pasaran_win4d_bb_kena_432d_field = record[i]["win4dbb_kena_432d"];
+                pasaran_win3d_bb_kena_432d_field = record[i]["win3dbb_kena_432d"];
+                pasaran_win3dd_bb_kena_432d_field = record[i]["win3ddbb_kena_432d"];
+                pasaran_win2d_bb_kena_432d_field = record[i]["win2dbb_kena_432d"];
+                pasaran_win2dd_bb_kena_432d_field = record[i]["win2ddbb_kena_432d"];
+                pasaran_win2dt_bb_kena_432d_field = record[i]["win2dtbb_kena_432d"];
+                pasaran_win4d_bb_432d_field = record[i]["win4dbb_432d"];
+                pasaran_win3d_bb_432d_field = record[i]["win3dbb_432d"];
+                pasaran_win3dd_bb_432d_field = record[i]["win3ddbb_432d"];
+                pasaran_win2d_bb_432d_field = record[i]["win2dbb_432d"];
+                pasaran_win2dd_bb_432d_field = record[i]["win2ddbb_432d"];
+                pasaran_win2dt_bb_432d_field = record[i]["win2dtbb_432d"];
 
                 pasaran_minbet_cbebas_field = record[i]["minbet_cbebas"];
                 pasaran_maxbet_cbebas_field = record[i]["maxbet_cbebas"];
@@ -754,27 +778,75 @@
         }
         if (pasaran_win4d_nodisc_432d_field == "") {
             flag = true;
-            msg += "The Win 4D is required\n";
+            msg += "The Win 4D FULL is required\n";
         }
         if (pasaran_win3d_nodisc_432d_field == "") {
             flag = true;
-            msg += "The Win 3D is required\n";
+            msg += "The Win 3D FULL is required\n";
         }
         if (pasaran_win3dd_nodisc_432d_field == "") {
             flag = true;
-            msg += "The Win 3DD is required\n";
+            msg += "The Win 3DD FULL is required\n";
         }
         if (pasaran_win2d_nodisc_432d_field == "") {
             flag = true;
-            msg += "The Win 2D is required\n";
+            msg += "The Win 2D FULL is required\n";
         }
         if (pasaran_win2dd_nodisc_432d_field == "") {
             flag = true;
-            msg += "The Win 2DD is required\n";
+            msg += "The Win 2DD FULL is required\n";
         }
         if (pasaran_win2dt_nodisc_432d_field == "") {
             flag = true;
-            msg += "The Win 2DT is required\n";
+            msg += "The Win 2DT FULL is required\n";
+        }
+        if (pasaran_win4d_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 4D BB KENA is required\n";
+        }
+        if (pasaran_win3d_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 3D BB KENA is required\n";
+        }
+        if (pasaran_win3dd_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 3DD BB KENA is required\n";
+        }
+        if (pasaran_win2d_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 2D BB KENA is required\n";
+        }
+        if (pasaran_win2dd_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DD BB KENA is required\n";
+        }
+        if (pasaran_win2dt_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DT BB KENA is required\n";
+        }
+        if (pasaran_win4d_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 4D BB is required\n";
+        }
+        if (pasaran_win3d_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 3D BB is required\n";
+        }
+        if (pasaran_win3dd_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 3DD BB is required\n";
+        }
+        if (pasaran_win2d_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 2D BB is required\n";
+        }
+        if (pasaran_win2dd_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DD BB is required\n";
+        }
+        if (pasaran_win2dt_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DT BB is required\n";
         }
         if (pasaran_disc4d_432d_field == "") {
             flag = true;
@@ -841,6 +913,18 @@
                     pasaran_win2dnodisc_432d: parseInt(pasaran_win2d_nodisc_432d_field),
                     pasaran_win2ddnodisc_432d: parseInt(pasaran_win2dd_nodisc_432d_field),
                     pasaran_win2dtnodisc_432d: parseInt(pasaran_win2dt_nodisc_432d_field),
+                    pasaran_win4d_bb_kena_432d: parseInt(pasaran_win4d_bb_kena_432d_field),
+                    pasaran_win3d_bb_kena_432d: parseInt(pasaran_win3d_bb_kena_432d_field),
+                    pasaran_win3dd_bb_kena_432d: parseInt(pasaran_win3dd_bb_kena_432d_field),
+                    pasaran_win2d_bb_kena_432d: parseInt(pasaran_win2d_bb_kena_432d_field),
+                    pasaran_win2dd_bb_kena_432d: parseInt(pasaran_win2dd_bb_kena_432d_field),
+                    pasaran_win2dt_bb_kena_432d: parseInt(pasaran_win2dt_bb_kena_432d_field),
+                    pasaran_win4d_bb_432d: parseInt(pasaran_win4d_bb_432d_field),
+                    pasaran_win3d_bb_432d: parseInt(pasaran_win3d_bb_432d_field),
+                    pasaran_win3dd_bb_432d: parseInt(pasaran_win3dd_bb_432d_field),
+                    pasaran_win2d_bb_432d: parseInt(pasaran_win2d_bb_432d_field),
+                    pasaran_win2dd_bb_432d: parseInt(pasaran_win2dd_bb_432d_field),
+                    pasaran_win2dt_bb_432d: parseInt(pasaran_win2dt_bb_432d_field),
                     pasaran_disc4d_432d: parseFloat(pasaran_disc4d_432d_field / 100),
                     pasaran_disc3d_432d: parseFloat(pasaran_disc3d_432d_field / 100),
                     pasaran_disc3dd_432d: parseFloat(pasaran_disc3dd_432d_field / 100),
@@ -2314,6 +2398,42 @@
             numbera = parseInt(pasaran_win2dt_nodisc_432d_field[i]);
             if (isNaN(numbera)) {
                 pasaran_win2dt_nodisc_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win4d_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win4d_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win4d_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3d_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3d_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3d_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3dd_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3dd_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3dd_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2d_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2d_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2d_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dd_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dd_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dd_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dt_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dt_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dt_bb_432d_field = "";
             }
         }
         for (let i = 0; i < pasaran_disc4d_432d_field.length; i++) {
@@ -4128,7 +4248,7 @@
         <Col>
             <TabContent pills>
                 <TabPane tabId="4-3-2" tab="4D/3D/2D" active>
-                    <Panel height_body="700px" card_footer="false" css_body="">
+                    <Panel height_body="700px" card_footer="false" css_body="700px;overflow:scroll;">
                         <slot:template slot="cheader">
                             <div class="float-end">
                                 <button
@@ -4755,6 +4875,7 @@
                                             )}
                                         </small>
                                     </div>
+                                    
                                 </Col>
                                 <Col xs="2">
                                     <div class="mb-3">
@@ -4877,6 +4998,241 @@
                                         >
                                     </div>
                                 </Col>
+                                <div class="clearfix"></div>
+                                <Col xs="2">&nbsp;</Col>
+                                <Col xs="2">&nbsp;</Col>
+                                <Col xs="2">&nbsp;</Col>
+                                <Col xs="2">
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 4D BB - KENA(x)</label>
+                                        <input
+                                            bind:value={pasaran_win4d_bb_kena_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 4D BB - KENA"
+                                            aria-label="Win 4D BB - KENA"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win4d_bb_kena_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 3D BB - KENA(x)</label>
+                                        <input
+                                            bind:value={pasaran_win3d_bb_kena_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 3D BB - KENA"
+                                            aria-label="Win 3D BB - KENA"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_win3d_bb_kena_432d_field
+                                            )}</small >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 3DD BB - KENA(x)</label>
+                                        <input
+                                            bind:value={pasaran_win3dd_bb_kena_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 3DD BB - KENA"
+                                            aria-label="Win 3DD BB - KENA"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win3dd_bb_kena_432d_field
+                                            )}
+                                        </small >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2D BB - KENA(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2d_bb_kena_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2D BB - KENA"
+                                            aria-label="Win 2D BB - KENA"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_win2d_bb_kena_432d_field
+                                            )}</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2DD BB - KENA(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2dd_bb_kena_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2DD BB - KENA"
+                                            aria-label="Win 2DD BB - KENA"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win2dd_bb_kena_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2DT BB - KENA(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2dt_bb_kena_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2DT BB - KENA"
+                                            aria-label="Win 2DT BB - KENA"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win2dt_bb_kena_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    
+                                </Col>
+                                <Col xs="2">
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 4D BB(x)</label>
+                                        <input
+                                            bind:value={pasaran_win4d_bb_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 4D BB"
+                                            aria-label="Win 4D BB"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win4d_bb_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 3D BB(x)</label>
+                                        <input
+                                            bind:value={pasaran_win3d_bb_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 3D BB"
+                                            aria-label="Win 3D BB"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_win3d_bb_432d_field
+                                            )}</small >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 3DD BB(x)</label>
+                                        <input
+                                            bind:value={pasaran_win3dd_bb_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 3DD BB"
+                                            aria-label="Win 3DD BB"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win3dd_bb_432d_field
+                                            )}
+                                        </small >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2D BB(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2d_bb_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2D BB"
+                                            aria-label="Win 2D BB"/>
+                                        <small
+                                            style="float:right;font-size:11px;"
+                                            >{new Intl.NumberFormat().format(
+                                                pasaran_win2d_bb_432d_field
+                                            )}</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2DD BB(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2dd_bb_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2DD BB"
+                                            aria-label="Win 2DD BB"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win2dd_bb_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label
+                                            for="exampleFormControlInput1"
+                                            class="form-label">Win 2DT BB(x)</label>
+                                        <input
+                                            bind:value={pasaran_win2dt_bb_432d_field}
+                                            on:keyup={handleKeyboard_number}
+                                            type="text"
+                                            style="text-align:right;"
+                                            class="form-control required"
+                                            placeholder="Win 2DT BB"
+                                            aria-label="Win 2DT BB"/>
+                                        <small
+                                            style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
+                                                pasaran_win2dt_bb_432d_field
+                                            )}
+                                        </small>
+                                    </div>
+                                    
+                                </Col>
+                                <Col xs="2">&nbsp;</Col>
                             </Row>
                         </slot:template>
                     </Panel>
