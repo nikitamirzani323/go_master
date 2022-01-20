@@ -758,15 +758,7 @@ func Companypasaranconf(c *fiber.Ctx) error {
 	if err != nil {
 		log.Println(err.Error())
 	}
-	log.Println("Response Info:")
-	log.Println("  Error      :", err)
-	log.Println("  Status Code:", resp.StatusCode())
-	log.Println("  Status     :", resp.Status())
-	log.Println("  Proto      :", resp.Proto())
-	log.Println("  Time       :", resp.Time())
-	log.Println("  Received At:", resp.ReceivedAt())
-	log.Println("  Body       :\n", resp)
-	log.Println()
+
 	result := resp.Result().(*responsedefault)
 	if result.Status == 200 {
 		return c.JSON(fiber.Map{
@@ -1350,6 +1342,18 @@ func Companyupdatepasaran432(c *fiber.Ctx) error {
 		Pasaran_win2dnodisc_432d    int     `json:"pasaran_win2dnodisc_432d" `
 		Pasaran_win2ddnodisc_432d   int     `json:"pasaran_win2ddnodisc_432d" `
 		Pasaran_win2dtnodisc_432d   int     `json:"pasaran_win2dtnodisc_432d" `
+		Pasaran_win4d_bb_432d       int     `json:"pasaran_win4d_bb_432d" `
+		Pasaran_win3d_bb_432d       int     `json:"pasaran_win3d_bb_432d" `
+		Pasaran_win3dd_bb_432d      int     `json:"pasaran_win3dd_bb_432d" `
+		Pasaran_win2d_bb_432d       int     `json:"pasaran_win2d_bb_432d" `
+		Pasaran_win2dd_bb_432d      int     `json:"pasaran_win2dd_bb_432d" `
+		Pasaran_win2dt_bb_432d      int     `json:"pasaran_win2dt_bb_432d" `
+		Pasaran_win4d_bb_kena_432d  int     `json:"pasaran_win4d_bb_kena_432d" `
+		Pasaran_win3d_bb_kena_432d  int     `json:"pasaran_win3d_bb_kena_432d" `
+		Pasaran_win3dd_bb_kena_432d int     `json:"pasaran_win3dd_bb_kena_432d" `
+		Pasaran_win2d_bb_kena_432d  int     `json:"pasaran_win2d_bb_kena_432d" `
+		Pasaran_win2dd_bb_kena_432d int     `json:"pasaran_win2dd_bb_kena_432d" `
+		Pasaran_win2dt_bb_kena_432d int     `json:"pasaran_win2dt_bb_kena_432d" `
 		Pasaran_disc4d_432d         float32 `json:"pasaran_disc4d_432d" `
 		Pasaran_disc3d_432d         float32 `json:"pasaran_disc3d_432d" `
 		Pasaran_disc3dd_432d        float32 `json:"pasaran_disc3dd_432d" `
@@ -1415,6 +1419,18 @@ func Companyupdatepasaran432(c *fiber.Ctx) error {
 			"pasaran_win2dnodisc_432d":    client.Pasaran_win2dnodisc_432d,
 			"pasaran_win2ddnodisc_432d":   client.Pasaran_win2ddnodisc_432d,
 			"pasaran_win2dtnodisc_432d":   client.Pasaran_win2dtnodisc_432d,
+			"pasaran_win4dbb_kena_432d":   client.Pasaran_win4d_bb_kena_432d,
+			"pasaran_win3dbb_kena_432d":   client.Pasaran_win3d_bb_kena_432d,
+			"pasaran_win3ddbb_kena_432d":  client.Pasaran_win3dd_bb_kena_432d,
+			"pasaran_win2dbb_kena_432d":   client.Pasaran_win2d_bb_kena_432d,
+			"pasaran_win2ddbb_kena_432d":  client.Pasaran_win2dd_bb_kena_432d,
+			"pasaran_win2dtbb_kena_432d":  client.Pasaran_win2dt_bb_kena_432d,
+			"pasaran_win4dbb_432d":        client.Pasaran_win4d_bb_432d,
+			"pasaran_win3dbb_432d":        client.Pasaran_win3d_bb_432d,
+			"pasaran_win3ddbb_432d":       client.Pasaran_win3dd_bb_432d,
+			"pasaran_win2dbb_432d":        client.Pasaran_win2d_bb_432d,
+			"pasaran_win2ddbb_432d":       client.Pasaran_win2dd_bb_432d,
+			"pasaran_win2dtbb_432d":       client.Pasaran_win2dt_bb_432d,
 			"pasaran_disc4d_432d":         client.Pasaran_disc4d_432d,
 			"pasaran_disc3d_432d":         client.Pasaran_disc3d_432d,
 			"pasaran_disc3dd_432d":        client.Pasaran_disc3dd_432d,

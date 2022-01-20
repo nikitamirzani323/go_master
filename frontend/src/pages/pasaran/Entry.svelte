@@ -548,6 +548,7 @@
             }
         }
     }
+    
     async function saveEntry() {
         let flag = false;
         let msg = "";

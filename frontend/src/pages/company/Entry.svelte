@@ -499,6 +499,7 @@
         } 
     }
     async function call_listpasaranconf() {
+        clear_field()
         const res = await fetch("/api/companypasaranconf", {
             method: "POST",
             headers: {
@@ -1706,6 +1707,54 @@
             flag = true;
             msg += "The Win 2DT NO DISKON is required\n";
         }
+        if (pasaran_win4d_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 4D BB KENA is required\n";
+        }
+        if (pasaran_win3d_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 3D BB KENA is required\n";
+        }
+        if (pasaran_win3dd_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 3DD BB KENA is required\n";
+        }
+        if (pasaran_win2d_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 2D BB KENA is required\n";
+        }
+        if (pasaran_win2dd_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DD BB KENA is required\n";
+        }
+        if (pasaran_win2dt_bb_kena_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DT BB KENA is required\n";
+        }
+        if (pasaran_win4d_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 4D BB is required\n";
+        }
+        if (pasaran_win3d_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 3D BB is required\n";
+        }
+        if (pasaran_win3dd_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 3DD BB is required\n";
+        }
+        if (pasaran_win2d_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 2D BB is required\n";
+        }
+        if (pasaran_win2dd_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DD BB is required\n";
+        }
+        if (pasaran_win2dt_bb_432d_field == "") {
+            flag = true;
+            msg += "The Win 2DT BB is required\n";
+        }
         if (pasaran_disc4d_432d_field == "") {
             flag = true;
             msg += "The Disc 4D is required\n";
@@ -1774,6 +1823,18 @@
                     pasaran_win2dnodisc_432d: parseInt(pasaran_win2d_nodisc_432d_field),
                     pasaran_win2ddnodisc_432d: parseInt(pasaran_win2dd_nodisc_432d_field),
                     pasaran_win2dtnodisc_432d: parseInt(pasaran_win2dt_nodisc_432d_field),
+                    pasaran_win4d_bb_kena_432d: parseInt(pasaran_win4d_bb_kena_432d_field),
+                    pasaran_win3d_bb_kena_432d: parseInt(pasaran_win3d_bb_kena_432d_field),
+                    pasaran_win3dd_bb_kena_432d: parseInt(pasaran_win3dd_bb_kena_432d_field),
+                    pasaran_win2d_bb_kena_432d: parseInt(pasaran_win2d_bb_kena_432d_field),
+                    pasaran_win2dd_bb_kena_432d: parseInt(pasaran_win2dd_bb_kena_432d_field),
+                    pasaran_win2dt_bb_kena_432d: parseInt(pasaran_win2dt_bb_kena_432d_field),
+                    pasaran_win4d_bb_432d: parseInt(pasaran_win4d_bb_432d_field),
+                    pasaran_win3d_bb_432d: parseInt(pasaran_win3d_bb_432d_field),
+                    pasaran_win3dd_bb_432d: parseInt(pasaran_win3dd_bb_432d_field),
+                    pasaran_win2d_bb_432d: parseInt(pasaran_win2d_bb_432d_field),
+                    pasaran_win2dd_bb_432d: parseInt(pasaran_win2dd_bb_432d_field),
+                    pasaran_win2dt_bb_432d: parseInt(pasaran_win2dt_bb_432d_field),
                     pasaran_disc4d_432d: parseFloat(pasaran_disc4d_432d_field / 100),
                     pasaran_disc3d_432d: parseFloat(pasaran_disc3d_432d_field / 100),
                     pasaran_disc3dd_432d: parseFloat(pasaran_disc3dd_432d_field / 100),
@@ -3396,6 +3457,78 @@
                 }
             }
         }
+        for (let i = 0; i < pasaran_win4d_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win4d_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win4d_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3d_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3d_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3d_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3dd_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3dd_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3dd_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2d_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2d_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2d_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dd_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dd_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dd_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dt_bb_kena_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dt_bb_kena_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dt_bb_kena_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win4d_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win4d_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win4d_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3d_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3d_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3d_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win3dd_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win3dd_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win3dd_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2d_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2d_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2d_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dd_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dd_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dd_bb_432d_field = "";
+            }
+        }
+        for (let i = 0; i < pasaran_win2dt_bb_432d_field.length; i++) {
+            numbera = parseInt(pasaran_win2dt_bb_432d_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_win2dt_bb_432d_field = "";
+            }
+        }
         for (let i = 0; i < pasaran_disc4d_432d_field.length; i++) {
             numbera = parseInt(pasaran_disc4d_432d_field[i]);
             if (isNaN(numbera)) {
@@ -4864,6 +4997,205 @@
             document.getElementById("modaNewOnline")
         );
         myModal.show();
+    }
+    function clear_field(){
+        pasaran_limitline4d_field = 0;
+        pasaran_limitline3d_field = 0;
+        pasaran_limitline3dd_field = 0;
+        pasaran_limitline2d_field = 0;
+        pasaran_limitline2dd_field = 0;
+        pasaran_limitline2dt_field = 0;
+        pasaran_bbfs_field = 0;
+        pasaran_minbet_432d_field = 0;
+        pasaran_maxbet4d_432d_field = 0;
+        pasaran_maxbet3d_432d_field = 0;
+        pasaran_maxbet3dd_432d_field = 0;
+        pasaran_maxbet2d_432d_field = 0;
+        pasaran_maxbet2dd_432d_field = 0;
+        pasaran_maxbet2dt_432d_field = 0;
+        pasaran_limitotal4d_432d_field = 0;
+        pasaran_limitotal3d_432d_field = 0;
+        pasaran_limitotal3dd_432d_field = 0;
+        pasaran_limitotal2d_432d_field = 0;
+        pasaran_limitotal2dd_432d_field = 0;
+        pasaran_limitotal2dt_432d_field = 0;
+        pasaran_limitglobal4d_432d_field = 0;
+        pasaran_limitglobal3d_432d_field = 0;
+        pasaran_limitglobal3dd_432d_field = 0;
+        pasaran_limitglobal2d_432d_field = 0;
+        pasaran_limitglobal2dd_432d_field = 0;
+        pasaran_limitglobal2dt_432d_field = 0;
+        pasaran_disc4d_432d_field = 0;
+        pasaran_disc3d_432d_field = 0;
+        pasaran_disc3dd_432d_field = 0;
+        pasaran_disc2d_432d_field = 0;
+        pasaran_disc2dd_432d_field = 0;
+        pasaran_disc2dt_432d_field = 0;
+        pasaran_win4d_432d_field = 0;
+        pasaran_win3d_432d_field = 0;
+        pasaran_win3dd_432d_field = 0;
+        pasaran_win2d_432d_field = 0;
+        pasaran_win2dd_432d_field = 0;
+        pasaran_win2dt_432d_field = 0;
+        pasaran_win4d_nodisc_432d_field = 0;
+        pasaran_win3d_nodisc_432d_field = 0;
+        pasaran_win3dd_nodisc_432d_field = 0;
+        pasaran_win2d_nodisc_432d_field = 0;
+        pasaran_win2dd_nodisc_432d_field = 0;
+        pasaran_win2dt_nodisc_432d_field = 0;
+        pasaran_win4d_bb_kena_432d_field = 0;
+        pasaran_win3d_bb_kena_432d_field = 0;
+        pasaran_win3dd_bb_kena_432d_field = 0;
+        pasaran_win2d_bb_kena_432d_field = 0;
+        pasaran_win2dd_bb_kena_432d_field = 0;
+        pasaran_win2dt_bb_kena_432d_field = 0;
+        pasaran_win4d_bb_432d_field = 0;
+        pasaran_win3d_bb_432d_field = 0;
+        pasaran_win3dd_bb_432d_field = 0;
+        pasaran_win2d_bb_432d_field = 0;
+        pasaran_win2dd_bb_432d_field = 0;
+        pasaran_win2dt_bb_432d_field =
+        pasaran_minbet_cbebas_field = 0;
+        pasaran_maxbet_cbebas_field = 0;
+        pasaran_limitotal_cbebas_field = 0;
+        pasaran_limitglobal_cbebas_field = 0;
+        pasaran_win_cbebas_field = 0;
+        pasaran_disc_cbebas_field = 0;
+        pasaran_minbet_cmacau_field = 0;
+        pasaran_maxbet_cmacau_field = 0;
+        pasaran_limitotal_cmacau_field = 0;
+        pasaran_limitglobal_cmacau_field = 0;
+        pasaran_win2_cmacau_field = 0;
+        pasaran_win3_cmacau_field = 0;
+        pasaran_win4_cmacau_field = 0;
+        pasaran_disc_cmacau_field = 0;
+        pasaran_minbet_cnaga_field = 0;
+        pasaran_maxbet_cnaga_field = 0;
+        pasaran_win3_cnaga_field = 0;
+        pasaran_win4_cnaga_field = 0;
+        pasaran_disc_cnaga_field = 0;
+        pasaran_limitglobal_cnaga_field = 0;
+        pasaran_limittotal_cnaga_field = 0;
+        pasaran_minbet_cjitu_field = 0;
+        pasaran_maxbet_cjitu_field = 0;
+        pasaran_winas_cjitu_field = 0;
+        pasaran_winkop_cjitu_field = 0;
+        pasaran_winkepala_cjitu_field = 0;
+        pasaran_winekor_cjitu_field = 0;
+        pasaran_desc_cjitu_field = 0;
+        pasaran_limitglobal_cjitu_field = 0;
+        pasaran_limittotal_cjitu_field = 0;
+        pasaran_minbet_5050umum_field = 0;
+        pasaran_maxbet_5050umum_field = 0;
+        pasaran_keibesar_5050umum_field = 0;
+        pasaran_keikecil_5050umum_field = 0;
+        pasaran_keigenap_5050umum_field = 0;
+        pasaran_keiganjil_5050umum_field = 0;
+        pasaran_keitengah_5050umum_field = 0;
+        pasaran_keitepi_5050umum_field = 0;
+        pasaran_discbesar_5050umum_field = 0;
+        pasaran_disckecil_5050umum_field = 0;
+        pasaran_discgenap_5050umum_field = 0;
+        pasaran_discganjil_5050umum_field = 0;
+        pasaran_disctengah_5050umum_field = 0;
+        pasaran_disctepi_5050umum_field = 0;
+        pasaran_limitglobal_5050umum_field = 0;
+        pasaran_limittotal_5050umum_field = 0;
+        pasaran_minbet_5050special_field = 0;
+        pasaran_maxbet_5050special_field = 0;
+        pasaran_keiasganjil_5050special_field = 0;
+        pasaran_keiasgenap_5050special_field = 0;
+        pasaran_keiasbesar_5050special_field = 0;
+        pasaran_keiaskecil_5050special_field = 0;
+        pasaran_keikopganjil_5050special_field = 0;
+        pasaran_keikopgenap_5050special_field = 0;
+        pasaran_keikopbesar_5050special_field = 0;
+        pasaran_keikopkecil_5050special_field = 0;
+        pasaran_keikepalaganjil_5050special_field = 0;
+        pasaran_keikepalagenap_5050special_field = 0;
+        pasaran_keikepalabesar_5050special_field = 0;
+        pasaran_keikepalakecil_5050special_field = 0;
+        pasaran_keiekorganjil_5050special_field = 0;
+        pasaran_keiekorgenap_5050special_field = 0;
+        pasaran_keiekorbesar_5050special_field = 0;
+        pasaran_keiekorkecil_5050special_field = 0;
+        pasaran_discasganjil_5050special_field = 0;
+        pasaran_discasgenap_5050special_field = 0;
+        pasaran_discasbesar_5050special_field = 0;
+        pasaran_discaskecil_5050special_field = 0;
+        pasaran_disckopganjil_5050special_field = 0;
+        pasaran_disckopgenap_5050special_field = 0;
+        pasaran_disckopbesar_5050special_field = 0;
+        pasaran_disckopkecil_5050special_field = 0;
+        pasaran_disckepalaganjil_5050special_field = 0;
+        pasaran_disckepalagenap_5050special_field = 0;
+        pasaran_disckepalabesar_5050special_field = 0;
+        pasaran_disckepalakecil_5050special_field = 0;
+        pasaran_discekorganjil_5050special_field = 0;
+        pasaran_discekorgenap_5050special_field = 0;
+        pasaran_discekorbesar_5050special_field = 0;
+        pasaran_discekorkecil_5050special_field = 0;
+        pasaran_limitglobal_5050special_field = 0;
+        pasaran_limittotal_5050special_field = 0;
+        pasaran_minbet_5050kombinasi_field = 0;
+        pasaran_maxbet_5050kombinasi_field = 0;
+        pasaran_belakangkeimono_5050kombinasi_field = 0;
+        pasaran_belakangkeistereo_5050kombinasi_field = 0;
+        pasaran_belakangkeikembang_5050kombinasi_field = 0;
+        pasaran_belakangkeikempis_5050kombinasi_field = 0;
+        pasaran_belakangkeikembar_5050kombinasi_field = 0;
+        pasaran_tengahkeimono_5050kombinasi_field = 0;
+        pasaran_tengahkeistereo_5050kombinasi_field = 0;
+        pasaran_tengahkeikembang_5050kombinasi_field = 0;
+        pasaran_tengahkeikempis_5050kombinasi_field = 0;
+        pasaran_tengahkeikembar_5050kombinasi_field = 0;
+        pasaran_depankeimono_5050kombinasi_field = 0;
+        pasaran_depankeistereo_5050kombinasi_field = 0;
+        pasaran_depankeikembang_5050kombinasi_field = 0;
+        pasaran_depankeikempis_5050kombinasi_field = 0;
+        pasaran_depankeikembar_5050kombinasi_field = 0;
+        pasaran_belakangdiscmono_5050kombinasi_field = 0;
+        pasaran_belakangdiscstereo_5050kombinasi_field = 0;
+        pasaran_belakangdisckembang_5050kombinasi_field = 0;
+        pasaran_belakangdisckempis_5050kombinasi_field = 0;
+        pasaran_belakangdisckembar_5050kombinasi_field = 0;
+        pasaran_tengahdiscmono_5050kombinasi_field = 0;
+        pasaran_tengahdiscstereo_5050kombinasi_field = 0;
+        pasaran_tengahdisckembang_5050kombinasi_field = 0;
+        pasaran_tengahdisckempis_5050kombinasi_field = 0;
+        pasaran_tengahdisckembar_5050kombinasi_field = 0;
+        pasaran_depandiscmono_5050kombinasi_field = 0;
+        pasaran_depandiscstereo_5050kombinasi_field = 0;
+        pasaran_depandisckembang_5050kombinasi_field = 0;
+        pasaran_depandisckempis_5050kombinasi_field = 0;
+        pasaran_depandisckembar_5050kombinasi_field = 0;
+        pasaran_limitglobal_5050kombinasi_field = 0;
+        pasaran_limittotal_5050kombinasi_field = 0;
+        pasaran_minbet_kombinasi_field = 0;
+        pasaran_maxbet_kombinasi_field = 0;
+        pasaran_win_kombinasi_field = 0;
+        pasaran_disc_kombinasi_field = 0;
+        pasaran_limitglobal_kombinasi_field = 0;
+        pasaran_limittotal_kombinasi_field = 0;
+        pasaran_minbet_dasar_field = 0;
+        pasaran_maxbet_dasar_field = 0;
+        pasaran_keibesar_dasar_field = 0;
+        pasaran_keikecil_dasar_field = 0;
+        pasaran_keigenap_dasar_field = 0;
+        pasaran_keiganjil_dasar_field = 0;
+        pasaran_discbesar_dasar_field = 0;
+        pasaran_disckecil_dasar_field = 0;
+        pasaran_discgenap_dasar_field = 0;
+        pasaran_discganjil_dasar_field = 0;
+        pasaran_limitglobal_dasar_field = 0;
+        pasaran_limittotal_dasar_field = 0;
+        pasaran_minbet_shio_field = 0;
+        pasaran_maxbet_shio_field = 0;
+        pasaran_win_shio_field = 0;
+        pasaran_disc_shio_field = 0;
+        pasaran_shioyear_shio_field = "";
+        pasaran_limitglobal_shio_field = 0;
+        pasaran_limittotal_shio_field = 0;
     }
 </script>
 
