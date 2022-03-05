@@ -4858,11 +4858,11 @@
                                             class="form-control required"
                                             placeholder="Disc 3D"
                                             aria-label="Disc 3D"/>
-                                        <small
-                                            style="float:right;font-size:11px;"
-                                            >{new Intl.NumberFormat().format(
+                                        <small style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
                                                 pasaran_disc3d_432d_field
-                                            )}</small>
+                                            )}
+                                        </small>
                                     </div>
                                     <div class="mb-3">
                                         <label
@@ -4894,21 +4894,18 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Disc 2D"
-                                            aria-label="Disc 2D"
-                                        />
+                                            aria-label="Disc 2D"/>
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_disc2d_432d_field
-                                            )}</small
-                                        >
+                                            )}
+                                        </small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label"
-                                            >Disc 2DD(%)</label
-                                        >
+                                            class="form-label">Disc 2DD(%)</label>
                                         <input
                                             bind:value={pasaran_disc2dd_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4916,21 +4913,18 @@
                                             style="text-align:right;"
                                             class="form-control required"
                                             placeholder="Disc 2DD"
-                                            aria-label="Disc 2DD"
-                                        />
+                                            aria-label="Disc 2DD">
                                         <small
                                             style="float:right;font-size:11px;"
                                             >{new Intl.NumberFormat().format(
                                                 pasaran_disc2dd_432d_field
-                                            )}</small
-                                        >
+                                            )}
+                                        </small>
                                     </div>
                                     <div class="mb-3">
                                         <label
                                             for="exampleFormControlInput1"
-                                            class="form-label"
-                                            >Disc 2DT(%)</label
-                                        >
+                                            class="form-label">Disc 2DT(%)</label>
                                         <input
                                             bind:value={pasaran_disc2dt_432d_field}
                                             on:keyup={handleKeyboard_number}
@@ -4940,12 +4934,11 @@
                                             placeholder="Disc 2DT"
                                             aria-label="Disc 2DT"
                                         />
-                                        <small
-                                            style="float:right;font-size:11px;"
-                                            >{new Intl.NumberFormat().format(
+                                        <small style="float:right;font-size:11px;">
+                                            {new Intl.NumberFormat().format(
                                                 pasaran_disc2dt_432d_field
-                                            )}</small
-                                        >
+                                            )}
+                                        </small>
                                     </div>
                                 </Col>
                                 <div class="clearfix"></div>
