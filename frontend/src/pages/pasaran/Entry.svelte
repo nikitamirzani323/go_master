@@ -319,7 +319,7 @@
                 pasaran_limitotal_cbebas_field = record[i]["limittotal_cbebas"];
                 pasaran_limitglobal_cbebas_field = record[i]["limitglobal_cbebas"];
                 pasaran_win_cbebas_field = record[i]["win_cbebas"].toFixed(2);
-                pasaran_disc_cbebas_field = (record[i]["disc_cbebas"] * 100).toFixed(2);;
+                pasaran_disc_cbebas_field = (record[i]["disc_cbebas"] * 100).toFixed(2);
 
                 pasaran_minbet_cmacau_field = record[i]["minbet_cmacau"];
                 pasaran_maxbet_cmacau_field = record[i]["maxbet_cmacau"];
