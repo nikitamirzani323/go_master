@@ -3162,6 +3162,12 @@
                 pasaran_limitline3d_field = "";
             }
         }
+        for (let i = 0; i < pasaran_limitline3dd_field.length; i++) {
+            numbera = parseInt(pasaran_limitline3dd_field[i]);
+            if (isNaN(numbera)) {
+                pasaran_limitline3dd_field = "";
+            }
+        }
         for (let i = 0; i < pasaran_limitline2d_field.length; i++) {
             numbera = parseInt(pasaran_limitline2d_field[i]);
             if (isNaN(numbera)) {
