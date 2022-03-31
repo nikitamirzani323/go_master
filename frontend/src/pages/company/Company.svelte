@@ -125,6 +125,11 @@
         }
     }
     async function editCompany(e) {
+        company_name_field = "";
+        company_url_field = "";
+        company_status_field = "";
+        company_create_field = "";
+        company_update_field = "";
         const res = await fetch("/api/companydetail", {
             method: "POST",
             headers: {

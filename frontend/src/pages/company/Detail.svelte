@@ -282,6 +282,13 @@
     }
     async function invoice_membertemp(e) {
         listInvoiceMembertemp = []
+        subtotal_bet_temp = 0;
+        subtotal_bayar_temp = 0;
+        subtotal_cancel_temp = 0;
+        subtotal_win_temp = 0;
+        subtotal_win_temp_css = "";
+        subtotal_winlose_temp = 0;
+        subtotal_winlose_temp_css = "";
         css_loader = "display: inline-block;";
         msgloader = "Sending...";
         const res = await fetch("/api/companyinvoicemembertemp", {
@@ -636,8 +643,7 @@
                     BackHalaman();
                 }}
                 class="btn btn-dark btn-sm"
-                style="border-radius: 0px;"
-            >
+                style="border-radius: 0px;">
                 Back
             </button>
         </div>
@@ -884,7 +890,7 @@
     <slot:template slot="body">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-information-tab" data-bs-toggle="pill" data-bs-target="#pills-information" type="button" role="tab" aria-controls="pills-information" aria-selected="true">Information</button>
+                <button class="nav-link active" id="pills-information-tab" data-bs-toggle="pill" data-bs-target="#pills-information" type="button" role="tab" aria-controls="pills-information" aria-selected="true">INFORMATION</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-member-tab" data-bs-toggle="pill" data-bs-target="#pills-member" type="button" role="tab" aria-controls="pills-member" aria-selected="true">MEMBER</button>
