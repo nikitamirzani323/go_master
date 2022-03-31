@@ -1099,7 +1099,7 @@ func Savepasaranmacau(c *fiber.Ctx) error {
 			"master":                        client.Master,
 			"idrecord":                      client.Idrecord,
 			"pasaran_minbet_kombinasi":      client.Pasaran_minbet_kombinasi,
-			"pasaran_maxbet_kombinasi":      client.Pasaran_minbet_kombinasi,
+			"pasaran_maxbet_kombinasi":      client.Pasaran_maxbet_kombinasi,
 			"pasaran_limitglobal_kombinasi": client.Pasaran_limitglobal_kombinasi,
 			"pasaran_limittotal_kombinasi":  client.Pasaran_limittotal_kombinasi,
 			"pasaran_win_kombinasi":         client.Pasaran_win_kombinasi,
